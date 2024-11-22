@@ -1,47 +1,52 @@
+// src/pages/auth/Login.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user"); // "user" or "admin"
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Contoh login sederhana, pastikan untuk mengganti ini dengan validasi sebenarnya
-    if (username === "admin" && password === "admin") {
-      localStorage.setItem("isLoggedIn", "true");
+
+    // Fake authentication (You can replace this with an actual API call)
+    if (username === "admin" && password === "admin" && role === "admin") {
       localStorage.setItem("role", "admin");
-      navigate("/");
-    } else if (username === "user" && password === "user") {
-      localStorage.setItem("isLoggedIn", "true");
+      navigate("/admin");
+    } else if (username === "user" && password === "user" && role === "user") {
       localStorage.setItem("role", "user");
-      navigate("/");
+      navigate("/home");
     } else {
-      alert("Invalid credentials!");
+      alert("Invalid credentials");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Login</h2>
-      <div>
-        <label>Username:</label>
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
         <input
           type="text"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
-      <div>
-        <label>Password:</label>
         <input
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+        <select value={role} onChange={(e) => setRole(e.target.value)}>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
-}
+};
+
+export default Login;

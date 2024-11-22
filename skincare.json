@@ -7,22 +7,22 @@
         {
           "type": "Cleanser",
           "name": "Cetaphil Gentle Skin Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "cetaphil.png"
         },
         {
           "type": "Moisturizer",
           "name": "CeraVe Moisturizing Cream",
-          "image": "https://via.placeholder.com/60"
+          "image": "cerave.png"
         },
         {
           "type": "Serum",
           "name": "The Ordinary Hyaluronic Acid 2% + B5",
-          "image": "https://via.placeholder.com/60"
+          "image": "ordinaryone.png"
         },
         {
           "type": "Sunscreen",
           "name": "Emina Sun Protection SPF 30",
-          "image": "https://via.placeholder.com/60"
+          "image": "eminasun.png"
         }
       ]
     },
@@ -34,22 +34,22 @@
         {
           "type": "Cleanser",
           "name": "COSRX Salicylic Acid Daily Gentle Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "salicylic.png"
         },
         {
           "type": "Moisturizer",
           "name": "Neutrogena Hydro Boost Gel Cream",
-          "image": "https://via.placeholder.com/60"
+          "image": "neutrogena.png"
         },
         {
           "type": "Serum",
           "name": "The Ordinary Niacinamide 10% + Zinc 1%",
-          "image": "https://via.placeholder.com/60"
+          "image": "ordinarytwo.png"
         },
         {
           "type": "Sunscreen",
           "name": "Biore UV Aqua Rich Watery Essence SPF 50+",
-          "image": "https://via.placeholder.com/60"
+          "image": "bioreuv.png"
         }
       ]
     },
@@ -61,22 +61,22 @@
         {
           "type": "Cleanser",
           "name": "La Roche-Posay Toleriane Hydrating Gentle Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "laroche.png"
         },
         {
           "type": "Moisturizer",
           "name": "Cetaphil Daily Hydrating Lotion",
-          "image": "https://via.placeholder.com/60"
+          "image": "cetaphiltwo.png"
         },
         {
           "type": "Serum",
           "name": "Paula's Choice Calm Repairing Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "paula.png"
         },
         {
           "type": "Sunscreen",
-          "name": "Skin Aqua UV Moisture Milk SPF 50+",
-          "image": "https://via.placeholder.com/60"
+          "name": "The Originote Ceramella Sunscreen SPF50 PA+++",
+          "image": "theoriginote.png"
         }
       ]
     },
@@ -88,22 +88,22 @@
         {
           "type": "Cleanser",
           "name": "Hada Labo AHA + BHA Face Wash",
-          "image": "https://via.placeholder.com/60"
+          "image": "hadalabo.png"
         },
         {
           "type": "Moisturizer",
           "name": "Laneige Water Bank Moisture Cream",
-          "image": "https://via.placeholder.com/60"
+          "image": "laneige.png"
         },
         {
           "type": "Serum",
           "name": "Kiehl’s Clearly Corrective Dark Spot Solution",
-          "image": "https://via.placeholder.com/60"
+          "image": "kiehl.png"
         },
         {
           "type": "Sunscreen",
           "name": "Wardah UV Shield Essential Sunscreen Gel SPF 30",
-          "image": "https://via.placeholder.com/60"
+          "image": "wardah.png"
         }
       ]
     },
@@ -115,22 +115,22 @@
         {
           "type": "Cleanser",
           "name": "Fresh Soy Face Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "fresh.png"
         },
         {
           "type": "Moisturizer",
           "name": "Clinique Dramatically Different Moisturizing Gel",
-          "image": "https://via.placeholder.com/60"
+          "image": "clinique.png"
         },
         {
           "type": "Serum",
           "name": "Innisfree Green Tea Seed Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "innisfree.png"
         },
         {
           "type": "Sunscreen",
           "name": "Anessa Perfect UV Sunscreen Mild Milk SPF 50+",
-          "image": "https://via.placeholder.com/60"
+          "image": "anessa.png"
         }
       ]
     },
@@ -142,22 +142,22 @@
         {
           "type": "Cleanser",
           "name": "Acne Free Oil-Free Acne Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "acnefree.png"
         },
         {
           "type": "Moisturizer",
           "name": "COSRX Oil-Free Ultra-Moisturizing Lotion",
-          "image": "https://via.placeholder.com/60"
+          "image": "oilfree.png"
         },
         {
           "type": "Serum",
           "name": "Drunk Elephant B-Hydra Intensive Hydration Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "drunk.png"
         },
         {
           "type": "Sunscreen",
           "name": "La Roche-Posay Anthelios Clear Skin SPF 60",
-          "image": "https://via.placeholder.com/60"
+          "image": "larochetwo.png"
         }
       ]
     },
@@ -169,22 +169,22 @@
         {
           "type": "Cleanser",
           "name": "Safi White Expert Purifying Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "safi.png"
         },
         {
           "type": "Moisturizer",
           "name": "Pond’s Bright Beauty Day Cream",
-          "image": "https://via.placeholder.com/60"
+          "image": "pondsbb.png"
         },
         {
           "type": "Serum",
           "name": "Olay Luminous Tone Perfecting Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "olay.png"
         },
         {
           "type": "Sunscreen",
           "name": "Skin Aqua UV Whitening Milk SPF 50+",
-          "image": "https://via.placeholder.com/60"
+          "image": "skinaqua.png"
         }
       ]
     },
@@ -196,22 +196,22 @@
         {
           "type": "Cleanser",
           "name": "Olay White Radiance Brightening Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "olaytwo.png"
         },
         {
           "type": "Moisturizer",
           "name": "Garnier Light Complete Vitamin C Serum Cream",
-          "image": "https://via.placeholder.com/60"
+          "image": "garnier.png"
         },
         {
           "type": "Serum",
           "name": "L'Oreal Paris Glycolic Bright Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "loreal.png"
         },
         {
           "type": "Sunscreen",
           "name": "Neutrogena Ultra Sheer Dry-Touch Sunscreen SPF 55",
-          "image": "https://via.placeholder.com/60"
+          "image": "neutrogenatwo.png"
         }
       ]
     },
@@ -223,22 +223,22 @@
         {
           "type": "Cleanser",
           "name": "Shiseido Benefiance Extra Creamy Cleansing Foam",
-          "image": "https://via.placeholder.com/60"
+          "image": "shiseido.png"
         },
         {
           "type": "Moisturizer",
           "name": "Olay Regenerist Micro-Sculpting Cream",
-          "image": "https://via.placeholder.com/60"
+          "image": "olaythree.png"
         },
         {
           "type": "Serum",
           "name": "Estée Lauder Advanced Night Repair Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "estee.png"
         },
         {
           "type": "Sunscreen",
           "name": "Supergoop! Unseen Sunscreen SPF 40",
-          "image": "https://via.placeholder.com/60"
+          "image": "supergoop.png"
         }
       ]
     },
@@ -250,22 +250,22 @@
         {
           "type": "Cleanser",
           "name": "Innisfree Jeju Volcanic Pore Cleansing Foam",
-          "image": "https://via.placeholder.com/60"
+          "image": "jeju.png"
         },
         {
           "type": "Exfoliator",
           "name": "Paula's Choice Skin Perfecting 2% BHA Liquid Exfoliant",
-          "image": "https://via.placeholder.com/60"
+          "image": "paulas.png"
         },
         {
           "type": "Mask",
           "name": "Aztec Secret Indian Healing Clay Mask",
-          "image": "https://via.placeholder.com/60"
+          "image": "indian.png"
         },
         {
           "type": "Serum",
           "name": "The Ordinary Salicylic Acid 2% Solution",
-          "image": "https://via.placeholder.com/60"
+          "image": "ordinarythree.png"
         }
       ]
     },
@@ -277,22 +277,22 @@
         {
           "type": "Cleanser",
           "name": "Bioré Charcoal Acne Daily Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "charcoal.png"
         },
         {
           "type": "Exfoliator",
           "name": "The Ordinary Glycolic Acid 7% Toning Solution",
-          "image": "https://via.placeholder.com/60"
+          "image": "ordinaryfour.png"
         },
         {
           "type": "Serum",
           "name": "LANEIGE Water Bank Pore Refining Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "laneigetwo.png"
         },
         {
           "type": "Sunscreen",
           "name": "Neutrogena Clear Face Oil-Free Sunscreen SPF 55",
-          "image": "https://via.placeholder.com/60"
+          "image": "neutrogenathree.png"
         }
       ]
     },
@@ -304,22 +304,22 @@
         {
           "type": "Cleanser",
           "name": "CeraVe SA Smoothing Cleanser",
-          "image": "https://via.placeholder.com/60"
+          "image": "ceravetwo.png"
         },
         {
           "type": "Exfoliator",
           "name": "Paula's Choice 8% AHA Gel Exfoliant",
-          "image": "https://via.placeholder.com/60"
+          "image": "paulass.png"
         },
         {
           "type": "Serum",
           "name": "La Roche-Posay Effaclar Serum",
-          "image": "https://via.placeholder.com/60"
+          "image": "larochethree.png"
         },
         {
           "type": "Sunscreen",
           "name": "EltaMD UV Clear Broad-Spectrum SPF 46",
-          "image": "https://via.placeholder.com/60"
+          "image": "elta.png"
         }
       ]
     }

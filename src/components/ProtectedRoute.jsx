@@ -1,23 +1,25 @@
-/* eslint-disable react/prop-types */
+import React from "react";
 import { Navigate } from "react-router-dom";
 
-export default function ProtectedRoute({ children }) {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+const ProtectedRoute = ({ element: Component, role: requiredRole }) => {
   const role = localStorage.getItem("role");
 
-  // Redirect ke login jika belum login
-  if (!isLoggedIn) {
-    return <Navigate to="/login" />;
+  // Redirect to login if the user is not authenticated
+  if (!role) {
+    return <Navigate to="/login" replace />;
   }
 
-  // Redirect berdasarkan role saat mengakses '/'
-  if (role === "admin" && window.location.pathname === "/") {
-    return <Navigate to="/admin" />;
+  // Redirect to appropriate routes based on role
+  if (requiredRole === "admin" && role !== "admin") {
+    return <Navigate to="/home" replace />;
   }
 
-  if (role === "user" && window.location.pathname === "/") {
-    return <Navigate to="/home" />;
+  if (requiredRole === "user" && role !== "user") {
+    return <Navigate to="/admin" replace />;
   }
 
-  return children;
-}
+  // Render the protected element if role matches
+  return Component;
+};
+
+export default ProtectedRoute;

@@ -1,36 +1,44 @@
+// src/pages/auth/Register.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // Simpan data pengguna ke localStorage untuk simulasi
-    localStorage.setItem("registeredUser", JSON.stringify({ username, password }));
-    alert("Registration successful! Please login.");
+
+    // Fake registration (Replace with your actual registration logic)
+    if (username && password) {
+      alert("User registered successfully!");
+      navigate("/login");
+    } else {
+      alert("Please fill in all fields");
+    }
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <h2>Register</h2>
-      <div>
-        <label>Username:</label>
+    <div>
+      <h1>Register</h1>
+      <form onSubmit={handleRegister}>
         <input
           type="text"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
-      <div>
-        <label>Password:</label>
         <input
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
-      <button type="submit">Register</button>
-    </form>
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
-}
+};
+
+export default Register;

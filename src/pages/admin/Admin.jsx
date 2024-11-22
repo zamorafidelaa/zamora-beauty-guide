@@ -1,20 +1,12 @@
-import { useNavigate } from "react-router-dom";
+// src/pages/admin/Admin.jsx
 
-function Admin() {
-  const navigate = useNavigate();
-
-  function handleLogout() {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("role");
-    navigate("/login");
-  }
-
+const Admin = () => {
   return (
-    <div className="admin-page">
-      <h1>Welcome, Admin!</h1>
-      <button onClick={handleLogout}>Logout</button>
+    <div>
+      <h1>Admin Dashboard</h1>
+      <p>Welcome, Admin!</p>
     </div>
   );
-}
+};
 
 export default Admin;

@@ -1,9 +1,12 @@
-export default function Home() {
-    return (
-      <div>
-        <h2>Welcome to Zamora Beauty Guide</h2>
-        <p>Your one-stop solution for skincare advice!</p>
-      </div>
-    );
-  }
-  
+// src/pages/user/Home.jsx
+
+const Home = () => {
+  return (
+    <div>
+      <h1>User Dashboard</h1>
+      <p>Welcome, User!</p>
+    </div>
+  );
+};
+
+export default Home;
