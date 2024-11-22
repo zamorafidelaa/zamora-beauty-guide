@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
-import UserHeader from "./components/user/UserHeader";
+import AdminRoutes from "./routes/AdminRoutes";
+import UserRoutes from "./routes/UserRoutes";
 
 const App = () => {
   return (
     <div>
-      <UserHeader /> {/* Header component shown on all pages */}
-      <Outlet /> {/* Renders the child routes */}
+      <UserRoutes/>
+      {/* <AdminRoutes/> */}
     </div>
   );
 };

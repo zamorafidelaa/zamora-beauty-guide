@@ -1,20 +1,327 @@
+/* Gaya untuk header user*/
+/* Gaya untuk header */
 header {
-  background-color: #333;
-  padding: 10px;
+  display: flex; /* Menggunakan Flexbox untuk tata letak */
+  justify-content: space-between; /* Memisahkan logo dan navigasi */
+  align-items: center; /* Menyelaraskan item secara vertikal */
+  background-color: #f2a7b5; /* Warna latar belakang pink lembut */
+  padding: 20px 40px; /* Jarak dalam header */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  position: sticky; /* Tetap di atas saat scroll */
+  top: 0;
+  z-index: 1000; /* Tetap di atas elemen lainnya */
 }
 
-nav ul {
+/* Logo dan nama website */
+header .logo {
   display: flex;
+  align-items: center; /* Menyelaraskan logo dan teks secara vertikal */
+}
+
+header .logo img {
+  width: 65px; /* Ukuran logo */
+  height: auto;
+  margin-right: 25px; /* Jarak antara logo dan nama */
+  border-radius: 50%;
+}
+
+header .logo h1 {
+  font-size: 24px;
+  color: #ffffff; /* Warna teks putih */
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Navigasi */
+nav ul {
+  list-style: none; /* Hilangkan bullet list */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Navigasi horizontal */
+  gap: 20px; /* Jarak antar link */
+}
+
+nav ul li {
+  margin: 0; /* Reset margin */
+}
+
+/* Link */
+nav ul li a {
+  text-decoration: none; /* Hilangkan garis bawah */
+  font-size: 16px;
+  color: #ffffff; /* Warna teks putih */
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease; /* Animasi */
+}
+
+/* Hover efek */
+nav ul li a:hover {
+  color: #590d22; /* Warna lebih gelap saat hover */
+  transform: scale(1.1); /* Sedikit perbesaran */
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+  header .logo h1 {
+    font-size: 20px; /* Ukuran font lebih kecil */
+  }
+
+  nav ul {
+    flex-direction: column; /* Navigasi vertikal */
+    gap: 10px; /* Jarak antar link */
+  }
+
+  nav ul li a {
+    font-size: 14px; /* Ukuran font lebih kecil */
+  }
+}
+
+/* CONSULTATION */
+.consultation-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #fff5f7; /* Latar belakang pink lembut */
+  /* max-width: 800px; */
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Title */
+.consultation-title {
+  text-align: center;
+  color: #e60073; /* Warna pink lebih tajam */
+  margin-bottom: 20px;
+}
+
+/* Form */
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.consultation-label {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.consultation-select {
+  padding: 10px;
+  border: 1px solid #fcb6c8; /* Border pink */
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #ffffff;
+}
+
+.consultation-button {
+  padding: 10px 20px;
+  background-color: #e60073;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.consultation-button:hover {
+  background-color: #d50066; /* Warna hover */
+}
+
+/* Recommendations Container */
+.recommendations-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  list-style: none;
 }
 
-nav a {
+/* Recommendation Item */
+.recommendation-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1 1 calc(50% - 20px); /* Responsif */
+}
+
+.recommendation-name {
+  font-size: 1.2rem;
+  color: #e60073;
+  margin-bottom: 10px;
+}
+
+.recommendation-type {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.recommendation-image {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid #fcb6c8; /* Border pink */
+}
+
+/* No Recommendations Message */
+.no-recommendations {
+  font-style: italic;
+  color: #777;
+  text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .recommendation-item {
+    flex: 1 1 100%; /* Item penuh di layar kecil */
+  }
+
+  .consultation-select, .consultation-button {
+    width: 100%;
+  }
+}
+
+
+/* Footer Styles */
+.user-footer {
+  background-color: #f2a7b5;
+  color: #f9f9f9;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-left, .footer-links, .footer-right {
+  flex: 1 1 30%;
+  margin-bottom: 20px;
+}
+
+/* Bagian Footer Kiri */
+.footer-left h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #f9f9f9;
+}
+
+.footer-left p {
+  line-height: 1.6;
   color: white;
-  text-decoration: none;
-  font-size: 18px;
 }
 
-nav a:hover {
-  color: #ff9800;
+/* Bagian Quick Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Memusatkan konten secara horizontal */
+  text-align: center; /* Memusatkan teks */
+}
+
+.footer-links h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px; /* Memberi jarak antara judul dan daftar tautan */
+  color: #f9f9f9;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Bagian Footer Kanan */
+.footer-right h4 {
+  font-size: 1.2rem;
+  margin-left: 148px;
+  margin-bottom: 10px;
+  color: #f9f9f9;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #ffa726; /* Warna hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #533e3e;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left, .footer-links, .footer-right {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  .social-icons a {
+    margin-right: 10px;
+  }
+}
+
+
+/* HOME */
+.home-container {
+  position: relative;
+  text-align: center;
+  height: 100vh; 
+  background-color: black;
+}
+
+.video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border: none; 
 }

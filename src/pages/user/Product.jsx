@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
 
-const SearchSkincare = () => {
+const Product = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [skincareData, setSkincareData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [selectedType, setSelectedType] = useState(""); // Untuk memilih tipe produk
+  const [selectedType, setSelectedType] = useState(""); 
 
   useEffect(() => {
-    // Mengambil data skincare dari file JSON
     fetch("/skincare.json")
       .then((response) => response.json())
       .then((data) => {
         setSkincareData(data);
-        setFilteredData(data); // Set data awal untuk tampilan default
+        setFilteredData(data);
       })
       .catch((error) => console.error("Error fetching skincare data:", error));
   }, []);
@@ -21,7 +20,6 @@ const SearchSkincare = () => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
 
-    // Menyaring data berdasarkan pencarian
     let results = skincareData.filter((item) =>
       item.concern.toLowerCase().includes(value) ||
       item.recommendations.some((recommendation) =>
@@ -30,7 +28,6 @@ const SearchSkincare = () => {
       )
     );
 
-    // Filter tambahan berdasarkan tipe produk
     if (selectedType) {
       results = results
         .map((item) => ({
@@ -48,9 +45,8 @@ const SearchSkincare = () => {
 
   const handleTypeChange = (e) => {
     const type = e.target.value;
-    setSelectedType(type); // Memperbarui tipe yang dipilih
+    setSelectedType(type); 
 
-    // Menyaring data berdasarkan tipe produk
     let results = skincareData;
 
     if (type) {
@@ -62,10 +58,9 @@ const SearchSkincare = () => {
               recommendation.type.toLowerCase() === type.toLowerCase()
           ),
         }))
-        .filter((item) => item.recommendations.length > 0); // Hapus item tanpa rekomendasi
+        .filter((item) => item.recommendations.length > 0); 
     }
 
-    // Jika ada pencarian, terapkan juga filter pencarian
     if (searchTerm) {
       results = results.filter((item) =>
         item.concern.toLowerCase().includes(searchTerm) ||
@@ -80,9 +75,8 @@ const SearchSkincare = () => {
 
   return (
     <div>
-      <h1>Search Skincare</h1>
+      <h1>All Skincare Product</h1>
 
-      {/* Input Pencarian */}
       <input
         type="text"
         placeholder="Search skincare by concern or product name..."
@@ -90,7 +84,6 @@ const SearchSkincare = () => {
         onChange={handleSearch}
       />
 
-      {/* Dropdown untuk memilih Tipe */}
       <select onChange={handleTypeChange} value={selectedType}>
         <option value="">Select a type</option>
         <option value="Cleanser">Cleanser</option>
@@ -99,7 +92,6 @@ const SearchSkincare = () => {
         <option value="Sunscreen">Sunscreen</option>
       </select>
 
-      {/* Hasil Pencarian */}
       <div>
         {filteredData.length > 0 ? (
           filteredData.map((item, index) => (
@@ -128,4 +120,4 @@ const SearchSkincare = () => {
   );
 };
 
-export default SearchSkincare;
+export default Product;

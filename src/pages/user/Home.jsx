@@ -1,10 +1,16 @@
-// src/pages/user/Home.jsx
-
 const Home = () => {
   return (
-    <div>
-      <h1>User Dashboard</h1>
-      <p>Welcome, User!</p>
+    <div className="home-container">
+      <video
+        className="video-player"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 };

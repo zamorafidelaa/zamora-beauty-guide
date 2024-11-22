@@ -3,18 +3,27 @@ import { Link } from "react-router-dom";
 const UserHeader = () => {
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/consultation">Consultation</Link>
-          </li>
-          <li>
-            <Link to="/search-skincare">Search Skincare</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  );
+    <div className="logo">
+      <img src="image.png" alt="Logo" />
+      <h1>Zamora Beauty Guide</h1>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/consultation">Consultation</Link>
+        </li>
+        <li>
+          <Link to="/product">Product</Link>
+        </li>
+      </ul>
+    </nav>
+  </header>  );
 };
 
 export default UserHeader;

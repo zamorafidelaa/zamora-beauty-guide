@@ -17,7 +17,9 @@ const Consultation = () => {
     setSelectedConcern(selectedConcern);
 
     // Temukan concern yang dipilih untuk mendapatkan rekomendasi
-    const concernData = concerns.find((concern) => concern.concern === selectedConcern);
+    const concernData = concerns.find(
+      (concern) => concern.concern === selectedConcern
+    );
     if (concernData) {
       setRecommendations(concernData.recommendations);
     }
@@ -31,14 +33,16 @@ const Consultation = () => {
   };
 
   return (
-    <div>
-      <h1>Consultation</h1>
+    <div className="consultation-container">
+      <h1 className="consultation-title">Consultation</h1>
 
-      {/* Skin Concern Form */}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="concern">Pilih Keluhan Kulit:</label>
+      <form className="consultation-form" onSubmit={handleSubmit}>
+        <label htmlFor="concern" className="consultation-label">
+          Pilih Keluhan Kulit:
+        </label>
         <select
           id="concern"
+          className="consultation-select"
           value={selectedConcern}
           onChange={(e) => setSelectedConcern(e.target.value)}
         >
@@ -49,21 +53,26 @@ const Consultation = () => {
             </option>
           ))}
         </select>
-        <button type="submit">Cari Rekomendasi</button>
+        <button type="submit" className="consultation-button">
+          Cari Rekomendasi
+        </button>
       </form>
 
-      {/* Recommendations */}
-      <div>
+      <div className="recommendations-container">
         {recommendations.length > 0 ? (
           recommendations.map((recommendation, index) => (
-            <div key={index}>
-              <h3>{recommendation.name}</h3>
-              <p>{recommendation.type}</p>
-              <img src={recommendation.image} alt={recommendation.name} />
+            <div key={index} className="recommendation-item">
+              <h3 className="recommendation-name">{recommendation.name}</h3>
+              <p className="recommendation-type">{recommendation.type}</p>
+              <img
+                className="recommendation-image"
+                src={`/${recommendation.image}`}
+                alt={recommendation.name}
+              />
             </div>
           ))
         ) : (
-          <p>No recommendations available.</p>
+          <p className="no-recommendations">No recommendations available.</p>
         )}
       </div>
     </div>
