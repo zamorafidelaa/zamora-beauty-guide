@@ -1,5 +1,7 @@
 // src/pages/auth/Login.jsx
+import { useEffect } from "react";
 import { useState } from "react";
+// import { json } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -7,15 +9,27 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("user"); // "user" or "admin"
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("userLogin")) || [])
+  }, []);
+
+  console.log(data);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    const user = data.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    console.log(user);
 
     // Fake authentication (You can replace this with an actual API call)
-    if (username === "admin" && password === "admin" && role === "admin") {
+    if (username === "admin" && password === "admin") {
       localStorage.setItem("role", "admin");
       navigate("/admin");
-    } else if (username === "user" && password === "user" && role === "user") {
+    } else if (user) {
       localStorage.setItem("role", "user");
       navigate("/home");
     } else {

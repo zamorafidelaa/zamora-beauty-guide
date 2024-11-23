@@ -4,8 +4,8 @@ import UserRoutes from "./routes/UserRoutes";
 const App = () => {
   return (
     <div>
-      <UserRoutes/>
       {/* <AdminRoutes/> */}
+      <UserRoutes/>
     </div>
   );
 };

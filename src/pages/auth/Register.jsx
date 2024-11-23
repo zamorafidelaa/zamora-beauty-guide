@@ -10,8 +10,18 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Fake registration (Replace with your actual registration logic)
+    // Validasi input
     if (username && password) {
+      // Ambil data user yang ada di localStorage, atau inisialisasi dengan array kosong
+      const users = JSON.parse(localStorage.getItem("userLogin")) || [];
+
+      // Tambahkan user baru ke array
+      users.push({ username, password });
+
+      // Simpan kembali array ke localStorage
+      localStorage.setItem("userLogin", JSON.stringify(users));
+
+      // Tampilkan pesan sukses dan arahkan ke halaman login
       alert("User registered successfully!");
       navigate("/login");
     } else {
@@ -28,12 +38,14 @@ const Register = () => {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit">Register</button>
       </form>

@@ -14,23 +14,27 @@ import UserRoutes from "./routes/UserRoutes";
 import "./index.css";
 
 const router = createBrowserRouter([
+  { 
+    path: "login", element: <Login /> 
+  }, 
+  { 
+    path: "register", element: <Register /> 
+  },
   {
     path: "/",
-    element: <App />, // Base layout for routes
+    element: <App />, 
     children: [
-      { path: "login", element: <Login /> }, // Child routes inherit from "/"
-      { path: "register", element: <Register /> },
       {
         path: "admin",
-        element: <AdminRoutes role="admin" element={<Admin />} />, // Protect admin route
+        element: <AdminRoutes role="admin" element={<Admin />} />, 
       },
       {
         path: "home",
-        element: <UserRoutes role="user" element={<Home />} />, // Protect user route
+        element: <UserRoutes role="user" element={<Home />} />,
       },
       { path: "about", element: <About /> },
       { path: "consultation", element: <Consultation /> },
-      {path: "search-skincare", element: <Product/>},
+      { path: "product", element: <Product /> },
     ],
   },
 ]);

@@ -1,326 +1,374 @@
 [
-    {
-      "concern": "Kulit Kering",
-      "description":
-        "Kulit terasa kasar atau bersisik, sering terlihat pecah-pecah, dan kekurangan kelembapan.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Cetaphil Gentle Skin Cleanser",
-          "image": "cetaphil.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "CeraVe Moisturizing Cream",
-          "image": "cerave.png"
-        },
-        {
-          "type": "Serum",
-          "name": "The Ordinary Hyaluronic Acid 2% + B5",
-          "image": "ordinaryone.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Emina Sun Protection SPF 30",
-          "image": "eminasun.png"
-        }
-      ]
-    },
-    {
-      "concern": "Kulit Berminyak",
-      "description":
-        "Kulit tampak mengilap, terutama di zona T, akibat produksi sebum yang berlebih.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "COSRX Salicylic Acid Daily Gentle Cleanser",
-          "image": "salicylic.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Neutrogena Hydro Boost Gel Cream",
-          "image": "neutrogena.png"
-        },
-        {
-          "type": "Serum",
-          "name": "The Ordinary Niacinamide 10% + Zinc 1%",
-          "image": "ordinarytwo.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Biore UV Aqua Rich Watery Essence SPF 50+",
-          "image": "bioreuv.png"
-        }
-      ]
-    },
-    {
-      "concern": "Kulit Sensitif",
-      "description":
-        "Kulit mudah mengalami iritasi, kemerahan, atau reaksi terhadap produk tertentu.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "La Roche-Posay Toleriane Hydrating Gentle Cleanser",
-          "image": "laroche.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Cetaphil Daily Hydrating Lotion",
-          "image": "cetaphiltwo.png"
-        },
-        {
-          "type": "Serum",
-          "name": "Paula's Choice Calm Repairing Serum",
-          "image": "paula.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "The Originote Ceramella Sunscreen SPF50 PA+++",
-          "image": "theoriginote.png"
-        }
-      ]
-    },
-    {
-      "concern": "Kulit Kusam",
-      "description":
-        "Kulit terlihat tidak bercahaya, biasanya disebabkan oleh penumpukan sel kulit mati.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Hada Labo AHA + BHA Face Wash",
-          "image": "hadalabo.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Laneige Water Bank Moisture Cream",
-          "image": "laneige.png"
-        },
-        {
-          "type": "Serum",
-          "name": "Kiehl’s Clearly Corrective Dark Spot Solution",
-          "image": "kiehl.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Wardah UV Shield Essential Sunscreen Gel SPF 30",
-          "image": "wardah.png"
-        }
-      ]
-    },
-    {
-      "concern": "Kulit Kombinasi",
-      "description":
-        "Kulit memiliki area kering dan berminyak, biasanya berminyak di zona T dan kering di pipi.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Fresh Soy Face Cleanser",
-          "image": "fresh.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Clinique Dramatically Different Moisturizing Gel",
-          "image": "clinique.png"
-        },
-        {
-          "type": "Serum",
-          "name": "Innisfree Green Tea Seed Serum",
-          "image": "innisfree.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Anessa Perfect UV Sunscreen Mild Milk SPF 50+",
-          "image": "anessa.png"
-        }
-      ]
-    },
-    {
-      "concern": "Kulit Berjerawat",
-      "description":
-        "Kulit memiliki jerawat aktif atau bekas jerawat yang membutuhkan perawatan khusus untuk mengontrol minyak dan melawan bakteri.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Acne Free Oil-Free Acne Cleanser",
-          "image": "acnefree.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "COSRX Oil-Free Ultra-Moisturizing Lotion",
-          "image": "oilfree.png"
-        },
-        {
-          "type": "Serum",
-          "name": "Drunk Elephant B-Hydra Intensive Hydration Serum",
-          "image": "drunk.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "La Roche-Posay Anthelios Clear Skin SPF 60",
-          "image": "larochetwo.png"
-        }
-      ]
-    },
-    {
-      "concern": "Kulit Belang",
-      "description":
-        "Kulit memiliki warna yang tidak merata, biasanya disebabkan oleh paparan sinar matahari atau hiperpigmentasi.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Safi White Expert Purifying Cleanser",
-          "image": "safi.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Pond’s Bright Beauty Day Cream",
-          "image": "pondsbb.png"
-        },
-        {
-          "type": "Serum",
-          "name": "Olay Luminous Tone Perfecting Serum",
-          "image": "olay.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Skin Aqua UV Whitening Milk SPF 50+",
-          "image": "skinaqua.png"
-        }
-      ]
-    },
-    {
-      "concern": "Flek Hitam",
-      "description":
-        "Adanya noda gelap di wajah akibat hiperpigmentasi yang biasanya disebabkan oleh paparan sinar matahari atau bekas jerawat.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Olay White Radiance Brightening Cleanser",
-          "image": "olaytwo.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Garnier Light Complete Vitamin C Serum Cream",
-          "image": "garnier.png"
-        },
-        {
-          "type": "Serum",
-          "name": "L'Oreal Paris Glycolic Bright Serum",
-          "image": "loreal.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Neutrogena Ultra Sheer Dry-Touch Sunscreen SPF 55",
-          "image": "neutrogenatwo.png"
-        }
-      ]
-    },
-    {
-      "concern": "Penuaan Dini",
-      "description":
-        "Kulit menunjukkan tanda-tanda kerutan halus, kehilangan elastisitas, atau bintik hitam akibat penuaan.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Shiseido Benefiance Extra Creamy Cleansing Foam",
-          "image": "shiseido.png"
-        },
-        {
-          "type": "Moisturizer",
-          "name": "Olay Regenerist Micro-Sculpting Cream",
-          "image": "olaythree.png"
-        },
-        {
-          "type": "Serum",
-          "name": "Estée Lauder Advanced Night Repair Serum",
-          "image": "estee.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Supergoop! Unseen Sunscreen SPF 40",
-          "image": "supergoop.png"
-        }
-      ]
-    },
-    {
-      "concern": "Komedo",
-      "description":
-        "Adanya komedo hitam atau putih yang sering muncul di area hidung, dagu, dan dahi akibat pori-pori tersumbat.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Innisfree Jeju Volcanic Pore Cleansing Foam",
-          "image": "jeju.png"
-        },
-        {
-          "type": "Exfoliator",
-          "name": "Paula's Choice Skin Perfecting 2% BHA Liquid Exfoliant",
-          "image": "paulas.png"
-        },
-        {
-          "type": "Mask",
-          "name": "Aztec Secret Indian Healing Clay Mask",
-          "image": "indian.png"
-        },
-        {
-          "type": "Serum",
-          "name": "The Ordinary Salicylic Acid 2% Solution",
-          "image": "ordinarythree.png"
-        }
-      ]
-    },
-    {
-      "concern": "Pori-Pori Besar",
-      "description":
-        "Pori-pori tampak lebih besar dan sering tersumbat, memberikan tampilan kasar pada kulit.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "Bioré Charcoal Acne Daily Cleanser",
-          "image": "charcoal.png"
-        },
-        {
-          "type": "Exfoliator",
-          "name": "The Ordinary Glycolic Acid 7% Toning Solution",
-          "image": "ordinaryfour.png"
-        },
-        {
-          "type": "Serum",
-          "name": "LANEIGE Water Bank Pore Refining Serum",
-          "image": "laneigetwo.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "Neutrogena Clear Face Oil-Free Sunscreen SPF 55",
-          "image": "neutrogenathree.png"
-        }
-      ]
-    },
-    {
-      "concern": "Milia",
-      "description":
-        "Bintik-bintik kecil berwarna putih pada wajah akibat penumpukan keratin di bawah kulit.",
-      "recommendations": [
-        {
-          "type": "Cleanser",
-          "name": "CeraVe SA Smoothing Cleanser",
-          "image": "ceravetwo.png"
-        },
-        {
-          "type": "Exfoliator",
-          "name": "Paula's Choice 8% AHA Gel Exfoliant",
-          "image": "paulass.png"
-        },
-        {
-          "type": "Serum",
-          "name": "La Roche-Posay Effaclar Serum",
-          "image": "larochethree.png"
-        },
-        {
-          "type": "Sunscreen",
-          "name": "EltaMD UV Clear Broad-Spectrum SPF 46",
-          "image": "elta.png"
-        }
-      ]
-    }
-  ]
+  {
+    "concern": "Kulit Kering",
+    "description":
+      "Kulit terasa kasar atau bersisik, sering terlihat pecah-pecah, dan kekurangan kelembapan.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Cetaphil Gentle Skin Cleanser",
+        "image": "cetaphil.png",
+        "description": "Pembersih wajah yang lembut dan tidak mengiritasi, cocok untuk kulit kering dan sensitif."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "CeraVe Moisturizing Cream",
+        "image": "cerave.png",
+        "description": "Krim pelembap yang membantu mengembalikan kelembapan kulit dengan kandungan ceramide."
+      },
+      {
+        "type": "Serum",
+        "name": "The Ordinary Hyaluronic Acid 2% + B5",
+        "image": "ordinaryone.png",
+        "description": "Serum yang mengandung asam hialuronat untuk membantu hidrasi kulit secara intensif."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Emina Sun Protection SPF 30",
+        "image": "eminasun.png",
+        "description": "Tabir surya dengan SPF 30 yang melindungi kulit dari paparan sinar UV tanpa membuat kulit kering."
+      }
+    ]
+  },
+  {
+    "concern": "Kulit Berminyak",
+    "description":
+      "Kulit tampak mengilap, terutama di zona T, akibat produksi sebum yang berlebih.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "COSRX Salicylic Acid Daily Gentle Cleanser",
+        "image": "salicylic.png",
+        "description": "Pembersih wajah dengan asam salisilat yang membantu mengontrol minyak dan mencegah jerawat."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Neutrogena Hydro Boost Gel Cream",
+        "image": "neutrogena.png",
+        "description": "Pelembap berbahan dasar gel yang ringan dan cepat meresap, cocok untuk kulit berminyak."
+      },
+      {
+        "type": "Serum",
+        "name": "The Ordinary Niacinamide 10% + Zinc 1%",
+        "image": "ordinarytwo.png",
+        "description": "Serum yang mengandung niacinamide untuk membantu mengurangi minyak berlebih dan mengatur produksi sebum."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Biore UV Aqua Rich Watery Essence SPF 50+",
+        "image": "bioreuv.png",
+        "description": "Tabir surya dengan formula ringan yang memberikan perlindungan tinggi tanpa menambah minyak pada wajah."
+      }
+    ]
+  },
+  {
+    "concern": "Kulit Sensitif",
+    "description":
+      "Kulit mudah mengalami iritasi, kemerahan, atau reaksi terhadap produk tertentu.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "La Roche-Posay Toleriane Hydrating Gentle Cleanser",
+        "image": "laroche.png",
+        "description": "Pembersih wajah yang sangat lembut dan dirancang khusus untuk kulit sensitif, menjaga kelembapan alami kulit."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Cetaphil Daily Hydrating Lotion",
+        "image": "cetaphiltwo.png",
+        "description": "Lotion pelembap yang cocok untuk kulit sensitif dan menjaga kelembapan kulit sepanjang hari."
+      },
+      {
+        "type": "Serum",
+        "name": "Paula's Choice Calm Repairing Serum",
+        "image": "paula.png",
+        "description": "Serum yang menenangkan dan menghidrasi kulit sensitif, mengurangi peradangan dan kemerahan."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "The Originote Ceramella Sunscreen SPF50 PA+++",
+        "image": "theoriginote.png",
+        "description": "Tabir surya yang sangat cocok untuk kulit sensitif, memberikan perlindungan SPF 50 tanpa iritasi."
+      }
+    ]
+  },
+  {
+    "concern": "Kulit Kusam",
+    "description":
+      "Kulit terlihat tidak bercahaya, biasanya disebabkan oleh penumpukan sel kulit mati.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Hada Labo AHA + BHA Face Wash",
+        "image": "hadalabo.png",
+        "description": "Pembersih wajah dengan AHA dan BHA yang membantu mengangkat sel kulit mati dan mencerahkan wajah."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Laneige Water Bank Moisture Cream",
+        "image": "laneige.png",
+        "description": "Pelembap yang menghidrasi kulit dan memberikan efek wajah lebih cerah dan segar."
+      },
+      {
+        "type": "Serum",
+        "name": "Kiehl’s Clearly Corrective Dark Spot Solution",
+        "image": "kiehl.png",
+        "description": "Serum yang membantu mengurangi noda hitam dan memberikan kulit yang lebih cerah dan bercahaya."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Wardah UV Shield Essential Sunscreen Gel SPF 30",
+        "image": "wardah.png",
+        "description": "Tabir surya yang ringan dengan SPF 30 untuk melindungi kulit dari sinar UV dan menjaga kelembapan."
+      }
+    ]
+  },
+  {
+    "concern": "Kulit Kombinasi",
+    "description":
+      "Kulit memiliki area kering dan berminyak, biasanya berminyak di zona T dan kering di pipi.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Fresh Soy Face Cleanser",
+        "image": "fresh.png",
+        "description": "Pembersih wajah yang lembut dan cocok untuk kulit kombinasi, menjaga kelembapan tanpa membuat kulit kering."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Clinique Dramatically Different Moisturizing Gel",
+        "image": "clinique.png",
+        "description": "Pelembap berbasis gel yang cocok untuk kulit kombinasi, memberikan hidrasi tanpa membuat wajah berminyak."
+      },
+      {
+        "type": "Serum",
+        "name": "Innisfree Green Tea Seed Serum",
+        "image": "innisfree.png",
+        "description": "Serum dengan ekstrak teh hijau yang menghidrasi kulit secara seimbang dan membantu menjaga kelembapan."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Anessa Perfect UV Sunscreen Mild Milk SPF 50+",
+        "image": "anessa.png",
+        "description": "Tabir surya dengan perlindungan tinggi yang ringan dan tidak membuat kulit terasa berminyak."
+      }
+    ]
+  },
+  {
+    "concern": "Kulit Berjerawat",
+    "description":
+      "Kulit memiliki jerawat aktif atau bekas jerawat yang membutuhkan perawatan khusus untuk mengontrol minyak dan melawan bakteri.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Acne Free Oil-Free Acne Cleanser",
+        "image": "acnefree.png",
+        "description": "Pembersih wajah tanpa minyak yang membantu membersihkan kulit dari kotoran dan minyak berlebih yang dapat menyebabkan jerawat."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "COSRX Oil-Free Ultra-Moisturizing Lotion",
+        "image": "oilfree.png",
+        "description": "Pelembap ringan tanpa minyak yang menghidrasi kulit, mencegah kekeringan, dan mengontrol produksi minyak."
+      },
+      {
+        "type": "Serum",
+        "name": "Drunk Elephant B-Hydra Intensive Hydration Serum",
+        "image": "drunk.png",
+        "description": "Serum hidrasi intensif yang memberikan kelembapan ekstra tanpa membuat kulit terasa berminyak, cocok untuk kulit berjerawat."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "La Roche-Posay Anthelios Clear Skin SPF 60",
+        "image": "larochetwo.png",
+        "description": "Tabir surya ringan yang melindungi kulit dari sinar UV, dirancang khusus untuk kulit berjerawat, dan tidak menyebabkan komedo."
+      }
+    ]
+  },
+  {
+    "concern": "Kulit Belang",
+    "description":
+      "Kulit memiliki warna yang tidak merata, biasanya disebabkan oleh paparan sinar matahari atau hiperpigmentasi.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Safi White Expert Purifying Cleanser",
+        "image": "safi.png",
+        "description": "Pembersih wajah yang membantu mencerahkan kulit, menghilangkan kotoran, dan mempersiapkan kulit untuk produk pencerah lainnya."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Pond’s Bright Beauty Day Cream",
+        "image": "pondsbb.png",
+        "description": "Pelembap siang hari yang membantu menyamarkan noda hitam dan mencerahkan kulit, memberikan hidrasi sepanjang hari."
+      },
+      {
+        "type": "Serum",
+        "name": "Olay Luminous Tone Perfecting Serum",
+        "image": "olay.png",
+        "description": "Serum yang membantu meratakan warna kulit, mengurangi bintik-bintik hitam, dan mencerahkan kulit wajah."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Skin Aqua UV Whitening Milk SPF 50+",
+        "image": "skinaqua.png",
+        "description": "Tabir surya dengan perlindungan tinggi yang juga membantu mencerahkan kulit, melindungi dari sinar UV yang dapat menyebabkan kulit belang."
+      }
+    ]
+  },
+  {
+    "concern": "Flek Hitam",
+    "description":
+      "Adanya noda gelap di wajah akibat hiperpigmentasi yang biasanya disebabkan oleh paparan sinar matahari atau bekas jerawat.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Olay White Radiance Brightening Cleanser",
+        "image": "olaytwo.png",
+        "description": "Pembersih wajah yang mengangkat kotoran dan sisa make-up, serta membantu mencerahkan kulit yang kusam dan bekas noda hitam."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Garnier Light Complete Vitamin C Serum Cream",
+        "image": "garnier.png",
+        "description": "Pelembap dengan kandungan vitamin C yang mencerahkan kulit dan mengurangi tampilan flek hitam serta memberikan kulit yang lebih bercahaya."
+      },
+      {
+        "type": "Serum",
+        "name": "L'Oreal Paris Glycolic Bright Serum",
+        "image": "loreal.png",
+        "description": "Serum dengan kandungan asam glikolat yang efektif mengurangi noda hitam dan mencerahkan kulit secara merata."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Neutrogena Ultra Sheer Dry-Touch Sunscreen SPF 55",
+        "image": "neutrogenatwo.png",
+        "description": "Tabir surya dengan formula ringan yang melindungi kulit dari sinar UV sambil mencegah timbulnya noda hitam lebih lanjut."
+      }
+    ]
+  },
+  {
+    "concern": "Penuaan Dini",
+    "description":
+      "Kulit menunjukkan tanda-tanda kerutan halus, kehilangan elastisitas, atau bintik hitam akibat penuaan.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Shiseido Benefiance Extra Creamy Cleansing Foam",
+        "image": "shiseido.png",
+        "description": "Pembersih wajah dengan formula lembut yang membersihkan kulit secara menyeluruh sambil memberikan kelembapan dan membantu mengurangi tanda penuaan."
+      },
+      {
+        "type": "Moisturizer",
+        "name": "Olay Regenerist Micro-Sculpting Cream",
+        "image": "olaythree.png",
+        "description": "Pelembap yang mengandung bahan aktif untuk meningkatkan elastisitas kulit, mengurangi kerutan, dan memberikan kulit yang lebih kencang."
+      },
+      {
+        "type": "Serum",
+        "name": "Estée Lauder Advanced Night Repair Serum",
+        "image": "estee.png",
+        "description": "Serum yang bekerja saat tidur untuk memperbaiki kerusakan kulit akibat penuaan dan memberikan tampilan kulit yang lebih muda dan bercahaya."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Supergoop! Unseen Sunscreen SPF 40",
+        "image": "supergoop.png",
+        "description": "Tabir surya transparan dengan perlindungan SPF tinggi yang melindungi kulit dari sinar UV dan mencegah kerusakan kulit lebih lanjut."
+      }
+    ]
+  },
+  {
+    "concern": "Komedo",
+    "description":
+      "Adanya komedo hitam atau putih yang sering muncul di area hidung, dagu, dan dahi akibat pori-pori tersumbat.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Innisfree Jeju Volcanic Pore Cleansing Foam",
+        "image": "jeju.png",
+        "description": "Pembersih wajah dengan ekstrak lava Jeju yang membantu membersihkan pori-pori, mengurangi minyak berlebih, dan mencegah komedo."
+      },
+      {
+        "type": "Exfoliator",
+        "name": "Paula's Choice Skin Perfecting 2% BHA Liquid Exfoliant",
+        "image": "paulas.png",
+        "description": "Eksfoliator cair yang mengandung salisilat untuk membuka pori-pori yang tersumbat dan mengurangi komedo serta jerawat."
+      },
+      {
+        "type": "Mask",
+        "name": "Aztec Secret Indian Healing Clay Mask",
+        "image": "indian.png",
+        "description": "Masker tanah liat yang membantu mengangkat kotoran dan minyak dari dalam pori-pori, mengurangi komedo dan jerawat."
+      },
+      {
+        "type": "Serum",
+        "name": "The Ordinary Salicylic Acid 2% Solution",
+        "image": "ordinarythree.png",
+        "description": "Serum yang mengandung asam salisilat untuk membantu membersihkan pori-pori dan mencegah terbentuknya komedo."
+      }
+    ]
+  },
+  {
+    "concern": "Pori-Pori Besar",
+    "description":
+      "Pori-pori tampak lebih besar dan sering tersumbat, memberikan tampilan kasar pada kulit.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "Bioré Charcoal Acne Daily Cleanser",
+        "image": "charcoal.png",
+        "description": "Pembersih wajah dengan arang aktif yang membantu membersihkan pori-pori besar dan mengurangi minyak berlebih pada kulit."
+      },
+      {
+        "type": "Exfoliator",
+        "name": "The Ordinary Glycolic Acid 7% Toning Solution",
+        "image": "ordinaryfour.png",
+        "description": "Eksfoliator dengan asam glikolat untuk mengangkat sel kulit mati, membantu mengecilkan pori-pori, dan membuat kulit lebih halus."
+      },
+      {
+        "type": "Serum",
+        "name": "LANEIGE Water Bank Pore Refining Serum",
+        "image": "laneigetwo.png",
+        "description": "Serum yang membantu mengecilkan pori-pori besar dan menghidrasi kulit, memberikan tampilan kulit lebih halus dan kencang."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "Neutrogena Clear Face Oil-Free Sunscreen SPF 55",
+        "image": "neutrogenathree.png",
+        "description": "Tabir surya yang melindungi kulit dari sinar UV sambil menjaga pori-pori tetap bersih dan tidak tersumbat."
+      }
+    ]
+  },
+  {
+    "concern": "Milia",
+    "description":
+      "Bintik-bintik kecil berwarna putih pada wajah akibat penumpukan keratin di bawah kulit.",
+    "recommendations": [
+      {
+        "type": "Cleanser",
+        "name": "CeraVe SA Smoothing Cleanser",
+        "image": "ceravetwo.png",
+        "description": "Pembersih wajah yang mengandung asam salisilat untuk membantu mengurangi milia dan menjaga kulit tetap halus."
+      },
+      {
+        "type": "Exfoliator",
+        "name": "Paula's Choice 8% AHA Gel Exfoliant",
+        "image": "paulass.png",
+        "description": "Eksfoliator dengan asam alfa hidroksi (AHA) untuk membantu menghilangkan sel kulit mati dan mencegah timbulnya milia."
+      },
+      {
+        "type": "Serum",
+        "name": "La Roche-Posay Effaclar Serum",
+        "image": "larochethree.png",
+        "description": "Serum yang membantu mengatasi komedo dan milia dengan mengurangi minyak berlebih dan menjaga kulit tetap bersih."
+      },
+      {
+        "type": "Sunscreen",
+        "name": "EltaMD UV Clear Broad-Spectrum SPF 46",
+        "image": "elta.png",
+        "description": "Tabir surya yang melindungi kulit dari sinar UV sambil mencegah timbulnya milia dan menjaga kelembapan kulit."
+      }
+    ]
+  }
+]

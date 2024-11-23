@@ -1,5 +1,11 @@
-/* Gaya untuk header user*/
-/* Gaya untuk header */
+body{
+  padding: 0;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   display: flex; /* Menggunakan Flexbox untuk tata letak */
   justify-content: space-between; /* Memisahkan logo dan navigasi */
@@ -12,7 +18,6 @@ header {
   z-index: 1000; /* Tetap di atas elemen lainnya */
 }
 
-/* Logo dan nama website */
 header .logo {
   display: flex;
   align-items: center; /* Menyelaraskan logo dan teks secara vertikal */
@@ -63,6 +68,118 @@ nav ul li a:hover {
   transform: scale(1.1); /* Sedikit perbesaran */
 }
 
+/* Home Container */
+.home-container {
+  display: flex;
+  flex-direction: column; /* Konten ditumpuk secara vertikal */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-color: #ffe4e6; /* Latar belakang soft pink */
+  overflow: hidden;
+}
+
+/* Video Player */
+.video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Video menyesuaikan ukuran layar */
+  z-index: 1; /* Pastikan video di latar belakang */
+  opacity: 0.9; /* Kurangi transparansi agar video tetap terlihat */
+  filter: brightness(0.9); /* Sedikit mengurangi kecerahan video agar teks lebih terbaca */
+}
+
+/* Lapisan Overlay untuk Kontras */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 182, 193, 0.3); /* Lapisan pink transparan lebih ringan */
+  z-index: 2; /* Di atas video */
+}
+
+/* Judul Pesan Sambutan */
+.home-container h1 {
+  position: relative; /* Tetap di atas overlay */
+  z-index: 3; /* Di atas semua elemen latar */
+  font-size: 5rem; /* Ukuran judul lebih besar */
+  font-weight: bold;
+  color: #3d0d14; /* Warna merah lebih gelap */
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.8); /* Bayangan putih untuk kontras */
+  margin-bottom: 30px;
+  margin-top: -50px; /* Dinaikkan sedikit */
+  text-align: center;
+}
+
+/* Paragraf Pesan Sambutan */
+.home-container p {
+  position: relative; /* Tetap di atas overlay */
+  z-index: 3;
+  font-size: 1.8rem; /* Ukuran paragraf lebih besar */
+  color: #7a1a37; /* Warna merah lembut */
+  text-align: center; /* Memastikan teks berada di tengah */
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.6); /* Bayangan putih ringan */
+  max-width: 700px; /* Batas lebar agar teks tetap rapi */
+  line-height: 1.8;
+  margin: 20px 20px 0; /* Memberi spasi atas dan kiri-kanan */
+  padding: 0;
+}
+
+/* Pembungkus pesan selamat datang */
+.welcome-message {
+  display: flex; /* Gunakan Flexbox untuk tata letak */
+  flex-direction: column; /* Tata letak konten secara vertikal */
+  justify-content: center; /* Memusatkan konten secara vertikal */
+  align-items: center; /* Memusatkan konten secara horizontal */
+  text-align: center; /* Menyelaraskan teks secara horizontal */
+  z-index: 3; /* Pastikan pesan berada di atas video */
+  position: relative;
+  padding: 20px;
+}
+
+/* Judul Pesan Sambutan */
+.welcome-message h1 {
+  font-size: 4rem; /* Ukuran judul lebih besar */
+  font-weight: bold;
+  color: #3d0d14; /* Warna merah lebih gelap */
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.8); /* Bayangan putih untuk kontras */
+  margin-bottom: 30px;
+}
+
+/* Paragraf Pesan Sambutan */
+.welcome-message p {
+  font-size: 1.6rem; /* Ukuran paragraf lebih besar */
+  color: #7a1a37; /* Warna merah lembut */
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.6); /* Bayangan putih ringan */
+  max-width: 700px; /* Batas lebar agar teks tetap rapi */
+  line-height: 1.8;
+  margin: 0; /* Menghapus margin default */
+  padding: 0; /* Menghapus padding default */
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 4rem; /* Ukuran judul lebih besar pada perangkat kecil */
+    margin-top: -30px; /* Sedikit menaikkan teks di perangkat kecil */
+  }
+
+  .home-container p {
+    font-size: 1.6rem; /* Ukuran paragraf lebih besar */
+    margin-top: 20px; /* Menambah jarak atas pada perangkat kecil */
+    padding: 0 20px; /* Menambah jarak kiri-kanan pada perangkat kecil */
+  }
+}
+
+
 /* Responsif untuk perangkat kecil */
 @media (max-width: 768px) {
   header .logo h1 {
@@ -79,117 +196,504 @@ nav ul li a:hover {
   }
 }
 
-/* CONSULTATION */
-.consultation-container {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #fff5f7; /* Latar belakang pink lembut */
-  /* max-width: 800px; */
+/* About */
+/* About Component Styles */
+.about-container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(45deg, #ffe4e1, #f7d0e2); /* Soft pink gradient */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: #333; /* Default text color */
+  font-family: 'Arial', sans-serif; /* Clean font */
+  line-height: 1.6; /* Improve text readability */
 }
 
-/* Title */
-.consultation-title {
+.about-title {
+  font-size: 36px;
+  color: #d56a8c;
   text-align: center;
-  color: #e60073; /* Warna pink lebih tajam */
+  margin-bottom: 20px;
+  font-family: 'Georgia', serif; /* Elegant font */
+  background: linear-gradient(45deg, #f7d0e2, #d56a8c); /* Pink gradient for text */
+  -webkit-background-clip: text;
+  color: transparent; /* Makes gradient visible in text */
+}
+
+.about-subtitle {
+  font-size: 24px;
+  color: #d56a8c;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.about-text {
+  font-size: 16px;
+  color: #555;
   margin-bottom: 20px;
 }
 
-/* Form */
+/* About Links (if needed) */
+.about-text a {
+  color: #d56a8c;
+  text-decoration: none;
+  border-bottom: 1px solid #d56a8c;
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.about-text a:hover {
+  color: #f7d0e2;
+  border-bottom-color: #f7d0e2;
+}
+
+/* CONSULTATION */
+.consultation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Title Styling */
+.consultation-title {
+  font-size: 36px;  /* Larger font size for the title */
+  color: #d56a8c;   /* Soft pink color */
+  text-align: center;
+  margin: 20px 0;
+  font-family: 'Arial', sans-serif;  /* Optional: specify font */
+}
+
 .consultation-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .consultation-label {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 18px;
+  color: #d56a8c;
+  margin-bottom: 10px;
 }
 
 .consultation-select {
   padding: 10px;
-  border: 1px solid #fcb6c8; /* Border pink */
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: #ffffff;
+  width: 300px;
+  border: 2px solid #f7d0e2; /* Soft pink border */
+  border-radius: 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  background: linear-gradient(45deg, #ffe4e1, #f7d0e2); /* Soft pink gradient */
 }
 
 .consultation-button {
+  background-color: #d56a8c;
+  color: #c53160;
   padding: 10px 20px;
-  background-color: #e60073;
-  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 1rem;
+  transition: background-color 0.3s;
+  background: linear-gradient(45deg, #ffe4e1, #f7d0e2); /* Soft pink gradient */
 }
 
 .consultation-button:hover {
-  background-color: #d50066; /* Warna hover */
+  background-color: #f7d0e2;
 }
 
-/* Recommendations Container */
-.recommendations-container {
+.concern-description {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 50px;
+  border: 1px solid #f7d0e2;
   margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #ffe4e1, #f7d0e2); /* Soft pink gradient */
+}
+
+.concern-description p {
+  color: #777;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.recommendations-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
-/* Recommendation Item */
 .recommendation-item {
   background-color: #fff;
-  padding: 15px;
+  border: 1px solid #f7d0e2;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 250px;
   text-align: center;
-  flex: 1 1 calc(50% - 20px); /* Responsif */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  background: linear-gradient(45deg, #ffe4e1, #f7d0e2); /* Soft pink gradient */
+}
+
+.recommendation-item:hover {
+  transform: translateY(-10px); /* Hover effect */
 }
 
 .recommendation-name {
-  font-size: 1.2rem;
-  color: #e60073;
-  margin-bottom: 10px;
+  font-size: 18px;
+  color: #d56a8c;
 }
 
 .recommendation-type {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 15px;
+  font-size: 16px;
+  color: #777;
 }
 
 .recommendation-image {
-  width: 100px;
-  height: auto;
-  border-radius: 5px;
-  border: 1px solid #fcb6c8; /* Border pink */
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
 }
 
-/* No Recommendations Message */
 .no-recommendations {
-  font-style: italic;
-  color: #777;
   text-align: center;
+  font-size: 18px;
+  color: #777;
 }
 
-/* Responsiveness */
-@media (max-width: 600px) {
-  .recommendation-item {
-    flex: 1 1 100%; /* Item penuh di layar kecil */
+/* Product */
+.product-container {
+  /* width: 90%;
+  max-width: 800px; */
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  color: #4a4a4a;
+  background-color: #ffe4e6; /* Soft pink background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.product-container h1 {
+  text-align: center;
+  color: #d63384; /* Pink accent for heading */
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+/* Search input styling */
+/* Container untuk input dan ikon */
+/* Search Container */
+.search-container {
+  position: relative;
+  width: 100%; /* Make the container full width on small screens */
+  max-width: 400px; /* Limit the maximum width on larger screens */
+  margin: 0 auto 20px; /* Center the search container horizontally */
+}
+
+/* Input pencarian */
+.search-input {
+  width: 95%; /* Fill the container */
+  padding: 8px 0 8px 16px; /* Padding for icon positioning */
+  border: 1px solid #d63384;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #4a4a4a;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+/* Ikon pencarian */
+.search-icon {
+  position: absolute;
+  right: 16px; /* Ikon berada di sebelah kanan */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #d63384;
+  pointer-events: none; /* Tidak interaktif */
+}
+
+/* Focus state for input */
+.search-input:focus {
+  border-color: #ff6ea0; /* Highlight border color on focus */
+}
+
+/* Dropdown styling */
+.type-select {
+  width: 15%; /* Make the dropdown fill the container */
+  max-width: 400px; /* Limit max width */
+  padding: 8px;
+  margin: 0 auto 20px auto;
+  display: block;
+  border: 1px solid #d63384;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #4a4a4a;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.type-select:focus {
+  border-color: #ff6ea0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  /* Adjust container width and padding for medium screens */
+  .search-container {
+    width: 80%; /* 80% width for medium screens */
+    max-width: 300px;
   }
 
-  .consultation-select, .consultation-button {
-    width: 100%;
+  .search-input, .type-select {
+    font-size: 12px; /* Slightly smaller font */
+  }
+
+  .search-input {
+    padding: 8px 0 8px 12px; /* Adjust padding for smaller screen */
+  }
+
+  /* Adjust icon positioning */
+  .search-icon {
+    right: 10px; /* Reduce space between icon and input */
   }
 }
 
+@media (max-width: 480px) {
+  /* Full width for small screens */
+  .search-container {
+    width: 100%; /* Full width on small screens */
+    max-width: none; /* Remove max width */
+  }
 
-/* Footer Styles */
+  .search-input, .type-select {
+    font-size: 12px; /* Smaller font on small screens */
+    padding: 10px; /* Adjust padding for better appearance */
+  }
+
+  .search-input {
+    padding-left: 12px; /* Adjust padding for small screens */
+  }
+
+  .type-select {
+    width: 100%; /* Full width for dropdown */
+  }
+
+  /* Adjust icon position on very small screens */
+  .search-icon {
+    right: 8px; /* Move icon closer */
+  }
+}
+
+/* Product list styling */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 175px;
+}
+
+.product-item {
+  background: linear-gradient(to bottom, #f8d2e3, #ffffff); /* Softer pink to white gradient */
+  border: 1px solid #f8a0d3; /* Lighter pink border */  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-item h4 {
+  font-size: 1.1em;
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 50%;
+  border: 2px solid #f8a0d3; /* Lighter pink border for the image */
+}
+
+/* No results message */
+.no-results {
+  text-align: center;
+  font-size: 1.2em;
+  color: #d63384;
+  margin-top: 20px;
+}
+
+/* Pagination styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.page-button {
+  padding: 8px 12px;
+  border: 1px solid #f8a0d3; /* Lighter pink border for the buttons */
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #d63384;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-button.active {
+  background-color: #ff6ea0;
+  color: white;
+}
+
+.page-button:hover {
+  background-color: #ff8cb3;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Jarak antar tombol */
+}
+
+/* Tombol Like */
+.like-button {
+  color: #d63384;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.like-button:hover {
+  transform: scale(1.1); /* Membesar saat hover */
+}
+
+/* Tombol Like aktif (ketika diklik) */
+.like-button.liked {
+  background-color: #ff4d4d; 
+  color: #333; /* Warna teks default */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 2px;
+  border-radius: 80%;
+}
+
+/* /* Tombol Info */
+.info-button {
+  color: #d63384;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.info-button:hover {
+  color: #6a0b3b; /* Warna saat hover */
+  transform: scale(1.1); /* Membesar saat hover */
+}
+
+/* Jika Anda ingin menambahkan responsivitas */
+@media (max-width: 768px) {
+  .product-item {
+    width: 180px; /* Ukuran produk yang lebih kecil di layar kecil */
+  }
+
+  .like-button, .info-button {
+    font-size: 20px; /* Ukuran tombol lebih kecil pada layar kecil */
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 228, 236, 0.7); /* Soft pink dengan transparansi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  visibility: hidden; /* Popup awalnya tersembunyi */
+  opacity: 0; /* Mulai dengan opacity 0 untuk efek fade-in */
+}
+
+.popup-overlay.show {
+  visibility: visible; /* Menampilkan overlay ketika .show ditambahkan */
+  opacity: 1; /* Fade in efek */
+}
+
+.popup-content {
+  background: linear-gradient(135deg, #f8f8f8, #ffd6e8); /* Soft pink-to-white gradient */
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #ffb3d9; /* Menambahkan border yang lebih jelas */
+  box-shadow: 0 8px 15px rgba(255, 182, 193, 0.2); /* Soft shadow effect */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(0.95); /* Membuat popup lebih kecil pada awalnya */
+  opacity: 0; /* Memulai dengan opacity 0 untuk efek fade-in */
+}
+
+.popup-overlay.show .popup-content {
+  transform: scale(1); /* Memperbesar popup ke ukuran normal */
+  opacity: 1; /* Fade in */
+}
+
+.popup-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.close-popup-button {
+  margin-top: 10px;
+  background-color: #ffb3d9; /* Soft pink background for button */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close-popup-button:hover {
+  background-color: #ff80b3; /* Slightly darker pink on hover */
+  transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+
+/* Footer styles */
 .user-footer {
   background-color: #f2a7b5;
   color: #f9f9f9;
@@ -227,13 +731,13 @@ nav ul li a:hover {
 .footer-links {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Memusatkan konten secara horizontal */
-  text-align: center; /* Memusatkan teks */
+  align-items: center;
+  text-align: center;
 }
 
 .footer-links h4 {
   font-size: 1.2rem;
-  margin-bottom: 15px; /* Memberi jarak antara judul dan daftar tautan */
+  margin-bottom: 15px;
   color: #f9f9f9;
 }
 
@@ -253,6 +757,7 @@ nav ul li a:hover {
 
 .footer-links ul li a:hover {
   text-decoration: underline;
+  color: #ee62ad;
 }
 
 /* Bagian Footer Kanan */
@@ -276,7 +781,7 @@ nav ul li a:hover {
 }
 
 .social-icons a:hover {
-  color: #ffa726; /* Warna hover */
+  color: #ee62ad;
 }
 
 /* Footer Bottom */
@@ -305,23 +810,4 @@ nav ul li a:hover {
   .social-icons a {
     margin-right: 10px;
   }
-}
-
-
-/* HOME */
-.home-container {
-  position: relative;
-  text-align: center;
-  height: 100vh; 
-  background-color: black;
-}
-
-.video-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  border: none; 
 }

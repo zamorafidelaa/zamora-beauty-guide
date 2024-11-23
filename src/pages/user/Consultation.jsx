@@ -4,9 +4,9 @@ const Consultation = () => {
   const [concerns, setConcerns] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [selectedConcern, setSelectedConcern] = useState("");
+  const [concernDescription, setConcernDescription] = useState(""); // State to store the description
 
   useEffect(() => {
-    // Fetch data concern kulit dari file JSON
     fetch("/skincare.json")
       .then((response) => response.json())
       .then((data) => setConcerns(data))
@@ -16,12 +16,12 @@ const Consultation = () => {
   const handleSelectConcern = (selectedConcern) => {
     setSelectedConcern(selectedConcern);
 
-    // Temukan concern yang dipilih untuk mendapatkan rekomendasi
     const concernData = concerns.find(
       (concern) => concern.concern === selectedConcern
     );
     if (concernData) {
       setRecommendations(concernData.recommendations);
+      setConcernDescription(concernData.description); // Set the description
     }
   };
 
@@ -53,10 +53,18 @@ const Consultation = () => {
             </option>
           ))}
         </select>
+
         <button type="submit" className="consultation-button">
           Cari Rekomendasi
         </button>
       </form>
+
+      {/* Display the description of the selected concern */}
+      {selectedConcern && concernDescription && (
+        <div className="concern-description">
+          <p>{concernDescription}</p>
+        </div>
+      )}
 
       <div className="recommendations-container">
         {recommendations.length > 0 ? (

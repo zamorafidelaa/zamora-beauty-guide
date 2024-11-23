@@ -14,7 +14,7 @@ const UserRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/consultation" element={<Consultation />} />
-        <Route path="/search-skincare" element={<Product />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
       <UserFooter/>
     </div>
