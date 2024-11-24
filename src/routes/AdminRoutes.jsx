@@ -8,7 +8,7 @@ const AdminRoutes = () => {
     <div>
       <AdminHeader />
       <Routes>
-        <Route path="/" element={<Admin />} />
+        <Route path="admin" element={<Admin />} />
       </Routes>
       <AdminFooter/>
     </div>

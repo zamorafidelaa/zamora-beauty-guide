@@ -1,7 +1,5 @@
-// src/pages/auth/Login.jsx
 import { useEffect } from "react";
 import { useState } from "react";
-// import { json } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -25,8 +23,7 @@ const Login = () => {
 
     console.log(user);
 
-    // Fake authentication (You can replace this with an actual API call)
-    if (username === "admin" && password === "admin") {
+    if (username === "zamora" && password === "1744") {
       localStorage.setItem("role", "admin");
       navigate("/admin");
     } else if (user) {

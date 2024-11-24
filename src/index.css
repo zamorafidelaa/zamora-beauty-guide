@@ -200,21 +200,21 @@ nav ul li a:hover {
 /* About Component Styles */
 .about-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background: linear-gradient(45deg, #ffe4e1, #f7d0e2); /* Soft pink gradient */
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 50px auto; /* Adds spacing above and below the container */
+  padding: 40px;
+  background: linear-gradient(135deg, #ffe4e1, #f7d0e2); /* Soft pink gradient background */
+  border-radius: 15px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
   color: #333; /* Default text color */
   font-family: 'Arial', sans-serif; /* Clean font */
-  line-height: 1.6; /* Improve text readability */
+  line-height: 1.8; /* Improves readability */
 }
 
 .about-title {
-  font-size: 36px;
+  font-size: 40px;
   color: #d56a8c;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-family: 'Georgia', serif; /* Elegant font */
   background: linear-gradient(45deg, #f7d0e2, #d56a8c); /* Pink gradient for text */
   -webkit-background-clip: text;
@@ -222,16 +222,17 @@ nav ul li a:hover {
 }
 
 .about-subtitle {
-  font-size: 24px;
+  font-size: 26px;
   color: #d56a8c;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .about-text {
-  font-size: 16px;
+  font-size: 18px;
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  text-align: justify; /* Align text for clean presentation */
 }
 
 /* About Links (if needed) */
@@ -243,17 +244,16 @@ nav ul li a:hover {
 }
 
 .about-text a:hover {
-  color: #f7d0e2;
+  color: #af3f73;
   border-bottom-color: #f7d0e2;
 }
 
 /* CONSULTATION */
 .consultation-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto 211px;  
   padding: 20px;
   border-radius: 10px;
-  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 /* Title Styling */
@@ -262,7 +262,7 @@ nav ul li a:hover {
   color: #d56a8c;   /* Soft pink color */
   text-align: center;
   margin: 20px 0;
-  font-family: 'Arial', sans-serif;  /* Optional: specify font */
+  font-family: 'Georgia', serif; /* Elegant font */
 }
 
 .consultation-form {
@@ -369,28 +369,26 @@ nav ul li a:hover {
 
 /* Product */
 .product-container {
-  /* width: 90%;
-  max-width: 800px; */
-  margin: 0 auto;
+  margin: 0 auto 1px;
   padding: 20px;
   font-family: "Arial", sans-serif;
   color: #4a4a4a;
-  background-color: #ffe4e6; /* Soft pink background */
+  background-color: #ffe4e6;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Heading styling */
 .product-container h1 {
+  margin-top: 50px;
   text-align: center;
   color: #d63384; /* Pink accent for heading */
   margin-bottom: 20px;
   font-size: 1.8em;
+  font-family: 'Georgia', serif; /* Elegant font */
+
 }
 
-/* Search input styling */
-/* Container untuk input dan ikon */
-/* Search Container */
 .search-container {
   position: relative;
   width: 100%; /* Make the container full width on small screens */
@@ -503,6 +501,7 @@ nav ul li a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 175px;
+  margin: 145px 0 165px;
 }
 
 .product-item {
@@ -810,4 +809,143 @@ nav ul li a:hover {
   .social-icons a {
     margin-right: 10px;
   }
+}
+
+/* Admin */
+.admin-container{
+  background-color: #ffe6f2a0;
+}
+.admin-header{
+  background-color: #ffe6f2;
+}
+
+.header-admin{
+  color: #ff66b2; /* Deep pink text */
+}
+
+.admin-title{
+  margin: 0;
+  color: #ff66b2; /* Deep pink text */
+  text-align: center;
+}
+.admin-product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 150px;
+}
+
+.admin-product-item {
+  background: linear-gradient(to bottom, #f8d2e3, #ffffff);
+  border: 1px solid #f8a0d3;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 20px 10px;
+}
+
+.admin-product-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.admin-product-item h4 {
+  font-size: 1.1em;
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+.admin-product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 50%;
+  border: 2px solid #f8a0d3;
+}
+
+.admin-no-products-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #d63384;
+  margin-top: 20px;
+}
+
+.admin-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-edit-button,
+.admin-delete-button {
+  padding: 8px 12px;
+  border: 1px solid #f8a0d3;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #d63384;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-edit-button:hover,
+.admin-delete-button:hover {
+  background-color: #ff8cb3;
+  color: white;
+}
+
+/* Additional form styles */
+.admin-form {
+  margin: 40px auto; /* Form berada di tengah */
+  width: 50%; /* Lebar form lebih kecil */
+  text-align: center; /* Konten di dalam form terpusat */
+}
+
+.admin-form-input,
+.admin-form-textarea {
+  width: 80%; /* Lebar input lebih kecil */
+  margin-bottom: 10px;
+  padding: 8px; /* Padding lebih kecil */
+  border: 1px solid #f8a0d3;
+  border-radius: 5px;
+  font-size: 14px; /* Ukuran font lebih kecil */
+}
+
+.admin-submit-cancel-container {
+  margin-top: 15px; /* Jarak dengan input sebelumnya */
+  display: flex;
+  justify-content: center; /* Tombol berada di tengah */
+  gap: 10px; /* Jarak antar tombol */
+}
+
+.admin-submit-button,
+.admin-cancel-button {
+  padding: 8px 16px; /* Ukuran tombol */
+  border: none;
+  border-radius: 5px;
+  background-color: #d63384;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-submit-button:hover,
+.admin-cancel-button:hover {
+  background-color: #ff80b3;
+}
+
+.admin-footer {
+  background-color: #ffe6f2; /* Soft pink background */
+  color: #ff66b2; /* Deep pink text */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1em;
+  border-top: 2px solid #ff66b2;
+}
+
+.admin-footer p {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Clean, readable font */
 }

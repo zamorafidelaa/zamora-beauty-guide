@@ -32,9 +32,14 @@ const router = createBrowserRouter([
         path: "home",
         element: <UserRoutes role="user" element={<Home />} />,
       },
-      { path: "about", element: <About /> },
-      { path: "consultation", element: <Consultation /> },
-      { path: "product", element: <Product /> },
+      { path: "about", 
+        element: <About /> 
+      },
+      { path: "consultation", 
+        element: <Consultation /> 
+      },
+      { path: "product", 
+        element: <Product /> },
     ],
   },
 ]);

@@ -2,10 +2,13 @@ import AdminRoutes from "./routes/AdminRoutes";
 import UserRoutes from "./routes/UserRoutes";
 
 const App = () => {
+  // const isAdmin = true; // Tentukan berdasarkan autentikasi atau peran pengguna
+
   return (
     <div>
-      {/* <AdminRoutes/> */}
-      <UserRoutes/>
+      {/* {isAdmin ? <AdminRoutes /> : <UserRoutes />} */}
+      {/* <UserRoutes/> */}
+      <AdminRoutes/>
     </div>
   );
 };
