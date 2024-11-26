@@ -1,4 +1,3 @@
-// src/pages/auth/Register.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +11,16 @@ const Register = () => {
 
     // Validasi input
     if (username && password) {
-      // Ambil data user yang ada di localStorage, atau inisialisasi dengan array kosong
+      // Ambil data user yang ada di localStorage
       const users = JSON.parse(localStorage.getItem("userLogin")) || [];
+
+      // Periksa apakah username sudah ada
+      const isUsernameTaken = users.some((user) => user.username === username);
+
+      if (isUsernameTaken) {
+        alert("Username is already taken. Please choose a different one.");
+        return;
+      }
 
       // Tambahkan user baru ke array
       users.push({ username, password });
@@ -25,7 +32,7 @@ const Register = () => {
       alert("User registered successfully!");
       navigate("/login");
     } else {
-      alert("Please fill in all fields");
+      alert("Please fill in all fields.");
     }
   };
 

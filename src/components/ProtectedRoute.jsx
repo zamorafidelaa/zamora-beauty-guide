@@ -1,25 +1,20 @@
-// import React from "react";
-// import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-// const ProtectedRoute = ({ element: Component, role: requiredRole }) => {
-//   const role = localStorage.getItem("role");
+const ProtectedRoute = ({ children, role }) => {
+  const userRole = localStorage.getItem("role"); // Ambil role dari localStorage
+  const isLoggedIn = !!userRole; // Cek apakah ada role (berarti sudah login)
 
-//   // Redirect to login if the user is not authenticated
-//   if (!role) {
-//     return <Navigate to="/login" replace />;
-//   }
+  if (!isLoggedIn) {
+    // Jika pengguna belum login, arahkan ke halaman login
+    return <Navigate to="/login" />;
+  }
 
-//   // Redirect to appropriate routes based on role
-//   if (requiredRole === "admin" && role !== "admin") {
-//     return <Navigate to="/home" replace />;
-//   }
+  if (role && userRole !== role) {
+    // Jika ada role yang tidak cocok, arahkan ke halaman lain (misalnya home)
+    return <Navigate to="/home" />;
+  }
 
-//   if (requiredRole === "user" && role !== "user") {
-//     return <Navigate to="/admin" replace />;
-//   }
+  return children; // Jika lolos, tampilkan halaman yang diminta
+};
 
-//   // Render the protected element if role matches
-//   return Component;
-// };
-
-// export default ProtectedRoute;
+export default ProtectedRoute;

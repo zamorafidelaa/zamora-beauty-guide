@@ -8,9 +8,9 @@ const AdminRoutes = () => {
     <div>
       <AdminHeader />
       <Routes>
-        <Route path="admin" element={<Admin />} />
+        <Route path="/" element={<Admin />} />
       </Routes>
-      <AdminFooter/>
+      <AdminFooter />
     </div>
   );
 };

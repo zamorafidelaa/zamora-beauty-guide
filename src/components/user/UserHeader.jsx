@@ -1,6 +1,8 @@
+import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const UserHeader = () => {
+
   return (
     <header>
     <div className="logo">
@@ -21,6 +23,8 @@ const UserHeader = () => {
         <li>
           <Link to="/product">Product</Link>
         </li>
+        <li><Heart /></li>
+
       </ul>
     </nav>
   </header>  );

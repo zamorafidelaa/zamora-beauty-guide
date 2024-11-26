@@ -95,7 +95,7 @@ const Admin = () => {
 
   return (
     <div className="admin-container">
-      <h1 className="admin-title">Admin Panel - Zamora Beauty Guide</h1>
+      <h1 className="admin-title">Add Product - Zamora Beauty Guide</h1>
 
       {/* Form for adding/editing products */}
       <form
