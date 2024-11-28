@@ -40,16 +40,33 @@ header .logo h1 {
 }
 
 /* Navigasi */
+nav {
+  display: flex; /* Buat navigasi menjadi fleksibel */
+  align-items: center; /* Vertikal rata tengah */
+  justify-content: space-between; /* Jarak antara logo/menu dan tombol logout */
+}
+
 nav ul {
   list-style: none; /* Hilangkan bullet list */
   padding: 0;
   margin: 0;
   display: flex; /* Navigasi horizontal */
   gap: 20px; /* Jarak antar link */
+  margin-right: auto; /* Pastikan ul berada di sisi kiri */
 }
 
 nav ul li {
   margin: 0; /* Reset margin */
+}
+
+nav ul li:last-child {
+  margin-right: 30px; /* Tambahkan jarak ke tombol Logout */
+}
+
+.icon-heart {
+  color: #e5306d; /* Ubah warna tepi (stroke) ikon menjadi merah */
+  fill: #e5306d;  /* Ubah warna dalam (fill) ikon menjadi merah */
+
 }
 
 /* Link */
@@ -64,8 +81,9 @@ nav ul li a {
 
 /* Hover efek */
 nav ul li a:hover {
-  color: #590d22; /* Warna lebih gelap saat hover */
+  color: #d92a5b; /* Warna lebih gelap saat hover */
   transform: scale(1.1); /* Sedikit perbesaran */
+  text-decoration: underline;
 }
 
 /* Home Container */
@@ -579,28 +597,31 @@ nav ul li a:hover {
 
 /* Tombol Like */
 .like-button {
-  color: #d63384;
-  font-size: 24px;
+  border: none;
+  background: none;
   cursor: pointer;
-  background-color: transparent;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.like-button:hover {
-  transform: scale(1.1); /* Membesar saat hover */
-}
-
-/* Tombol Like aktif (ketika diklik) */
-.like-button.liked {
-  background-color: #ff4d4d; 
-  color: #333; /* Warna teks default */
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 2px;
-  border-radius: 80%;
+}
+
+.heart-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease, fill 0.2s ease;
+}
+
+.heart-icon:hover {
+  transform: scale(1.1);
+}
+
+.heart-icon.liked {
+  color: red;
+  fill: red;
+  stroke: red;
+}
+
+.heart-icon.unliked {
+  color: #d63384;
+  fill: none;
+  stroke: currentColor;
 }
 
 /* /* Tombol Info */
@@ -950,5 +971,274 @@ nav ul li a:hover {
   font-family: 'Arial', sans-serif; /* Clean, readable font */
 }
 
+/* Login dan register */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #f48fb1, #fce4ec);
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Judul */
+.auth-title {
+  font-size: 2.8rem;
+  color: #880e4f;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtitle */
+.auth-subtitle {
+  font-size: 1.2rem;
+  color: #ae407b;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Formulir */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Input */
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #d81b60;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-input:focus {
+  border-color: #ad1457;
+  box-shadow: 0 0 8px rgba(216, 27, 96, 0.4);
+  outline: none;
+}
+
+/* Tombol */
+.auth-button {
+  width: 100%;
+  background-color: #ec407a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-button:hover {
+  background-color: #d81b60;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #880e4f;
+}
+
+.auth-link {
+  background: none;
+  border: none;
+  color: #6a1b9a;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #d81b60;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logout */
+.logout-button {
+  background-color: #ec407a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: auto; /* Pastikan tombol logout berada di paling kanan */
+}
+
+.logout-button:hover {
+  background-color: #d81b60;
+}
 
 
+
+
+.icon-heart {
+  font-size: 24px; /* Ukuran ikon sesuai preferensi */
+  color: red; /* Warna ikon jika perlu */
+}
+
+.favorites-count {
+  position: absolute;
+  bottom: -5px; 
+  right: -15px; /* Position the count slightly to the right of the icon */
+  color: white; /* White text color */
+  border-radius: 50%; /* Circular shape */
+  padding: 3px 7px; /* Padding around the number */
+  font-size: 12px; /* Font size for the count */
+  font-weight: bold; /* Bold text for better readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px; /* Ensures a minimum width for the badge */
+  height: 20px; /* Ensures a consistent height for the badge */
+  line-height: 1; /* Centers the text vertically */
+}
+
+.favorites-button {
+  position: relative; /* To position the .favorites-count relative to the button */
+  background: transparent; /* Transparent background for the button */
+  border: none; /* Remove any default border */
+  cursor: pointer; /* Cursor should indicate a clickable element */
+}
+
+
+/* Overlay to darken background when popup is shown */
+.favorites-popup-overlay {
+  position: fixed; /* Fixed position to cover the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 182, 193, 0.5); /* Semi-transparent soft pink background */
+  display: flex;
+  justify-content: center; /* Center the popup horizontally */
+  align-items: center; /* Center the popup vertically */
+  z-index: 1000; /* Ensure popup appears above other elements */
+  animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+}
+
+/* Popup content styling */
+.favorites-popup-content {
+  background-color: #ffe4e6; /* Soft pink background */
+  padding: 20px;
+  border-radius: 15px;
+  width: 80%; /* Adjust the width of the popup */
+  max-width: 500px; /* Maximum width */
+  max-height: 80vh; /* Limit height */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow around the popup */
+  position: relative; /* Position for the close button */
+  color: #333; /* Darker text color for readability */
+}
+
+/* Header styling in the popup */
+.favorites-popup-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #d0538e; /* Vibrant pink for header text */
+  text-align: center;
+}
+
+/* List of favorite products */
+.favorites-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* Each favorite item in the list */
+.favorite-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid rgba(192, 71, 89, 0.682); /* Light pink separator */
+  padding-bottom: 15px;
+}
+
+.favorite-image {
+  width: 50px; /* Set image size */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px; /* Rounded corners for the image */
+  margin-right: 15px;
+}
+
+.favorite-info h4 {
+  font-size: 16px;
+  margin: 0;
+  color: #d0538e; /* Soft pink for product names */
+}
+
+.favorite-info p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Close button styling */
+.close-button {
+  background: linear-gradient(135deg, #e0828e, #f1bfc5); /* Soft pink gradient for button */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+.close-button:hover {
+  background: linear-gradient(135deg, #d0538e, #ee9ca7); /* Darker pink gradient on hover */
+}
+
+/* Prevent clicking on overlay from closing the popup */
+.favorites-popup-overlay .favorites-popup-content {
+  pointer-events: all; /* Ensure popup can be interacted with */
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

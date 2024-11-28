@@ -1,36 +1,56 @@
+import { useEffect, useState } from "react";
 import { BadgeInfo } from "lucide-react";
 import { Heart } from "lucide-react";
 import { Search } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const Product = () => {
-  const [skincareData, setSkincareData] = useState([]); // Data asli
-  const [filteredData, setFilteredData] = useState([]); // Data untuk ditampilkan
-  const [favorites, setFavorites] = useState([]); // Produk yang disukai
-  const [popupData, setPopupData] = useState(null); // Data untuk popup
+  const [favorites, setFavorites] = useState([]); // Favorit lokal (array of objects)
+  const [skincareData, setSkincareData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [popupData, setPopupData] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
-  const [selectedType, setSelectedType] = useState(""); // Filter tipe
-  const [searchTerm, setSearchTerm] = useState(""); // Kata pencarian
-  const [currentPage, setCurrentPage] = useState(1); // Pagination
-  const itemsPerPage = 10; // Jumlah item per halaman
+  const [selectedType, setSelectedType] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
-  // 1. Fetch data from localStorage
   useEffect(() => {
+    // Load skincare data from localStorage
     const storedData = localStorage.getItem("products");
     if (storedData) {
       try {
         const parsedData = JSON.parse(storedData);
-        setSkincareData(parsedData); // Set data asli
-        setFilteredData(parsedData); // Set data untuk ditampilkan
+        setSkincareData(parsedData);
+        setFilteredData(parsedData);
       } catch (error) {
         console.error("Error parsing products data from localStorage:", error);
       }
-    } else {
-      console.warn("No products found in localStorage with key 'products'.");
+    }
+
+    // Load favorites from localStorage
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      try {
+        setFavorites(JSON.parse(storedFavorites));
+      } catch (error) {
+        console.error("Error parsing favorites data from localStorage:", error);
+      }
     }
   }, []);
 
-  // 2. Handle search
+  const toggleFavorite = (product) => {
+    const isFavorite = favorites.some((fav) => fav.name === product.name);
+
+    const updatedFavorites = isFavorite
+      ? favorites.filter((fav) => fav.name !== product.name) // Remove if already in favorites
+      : [...favorites, { name: product.name, image: product.image }]; // Add if not in favorites
+
+    setFavorites(updatedFavorites);
+
+    // Save updated favorites to localStorage
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
@@ -41,41 +61,27 @@ const Product = () => {
         item.type.toLowerCase().includes(value)
     );
     setFilteredData(results);
-    setCurrentPage(1); // Reset pagination
+    setCurrentPage(1);
   };
 
-  // 3. Handle type filtering
   const handleTypeChange = (e) => {
     const type = e.target.value.toLowerCase();
     setSelectedType(type);
 
     if (type === "") {
-      setFilteredData(skincareData); // Tampilkan semua jika tipe kosong
+      setFilteredData(skincareData);
     } else {
       const results = skincareData.filter(
         (product) => product.type.toLowerCase() === type
       );
       setFilteredData(results);
     }
-    setCurrentPage(1); // Reset pagination
+    setCurrentPage(1);
   };
 
-  // 4. Handle like button
-  const handleLike = (product) => {
-    const updatedFavorites = favorites.includes(product.name)
-      ? favorites.filter((name) => name !== product.name)
-      : [...favorites, product.name];
-    setFavorites(updatedFavorites);
-  };
-
-  // 5. Handle popup
   const handleShowPopup = (product) => {
-    if (product && product.name) {
-      setPopupData(product);
-      setShowPopup(true);
-    } else {
-      console.error("Invalid product data:", product);
-    }
+    setPopupData(product);
+    setShowPopup(true);
   };
 
   const handleClosePopup = () => {
@@ -83,7 +89,6 @@ const Product = () => {
     setPopupData(null);
   };
 
-  // 6. Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentData = filteredData.slice(indexOfFirstItem, indexOfLastItem);
@@ -113,8 +118,7 @@ const Product = () => {
         value={selectedType}
         className="type-select"
       >
-        <option value="">Select a type</option>{" "}
-        {/* Tampilkan "Select a type" sebagai opsi pertama */}
+        <option value="">Select a type</option>
         <option value="cleanser">Cleanser</option>
         <option value="moisturizer">Moisturizer</option>
         <option value="serum">Serum</option>
@@ -123,26 +127,40 @@ const Product = () => {
 
       <div className="product-list">
         {currentData.length > 0 ? (
-          currentData.map((recommendation, idx) => (
+          currentData.map((product, idx) => (
             <div key={idx} className="product-item">
-              <h4>{recommendation.name}</h4>
+              <h4>{product.name}</h4>
               <img
-                src={`/${recommendation.image}`}
-                alt={recommendation.name}
+                src={`/${product.image}`}
+                alt={product.name}
                 className="product-image"
               />
               <div className="button-container">
                 <button
-                  onClick={() => handleLike(recommendation)}
-                  className={`like-button ${
-                    favorites.includes(recommendation.name) ? "liked" : ""
-                  }`}
+                  onClick={() => toggleFavorite(product)}
+                  className="like-button"
                 >
-                  <Heart className="heart" />
+                  <Heart
+                    className={`heart-icon ${
+                      favorites.some((fav) => fav.name === product.name)
+                        ? "liked"
+                        : "unliked"
+                    }`}
+                    fill={
+                      favorites.some((fav) => fav.name === product.name)
+                        ? "red"
+                        : "none"
+                    }
+                    stroke={
+                      favorites.some((fav) => fav.name === product.name)
+                        ? "red"
+                        : "currentColor"
+                    }
+                  />
                 </button>
 
                 <button
-                  onClick={() => handleShowPopup(recommendation)}
+                  onClick={() => handleShowPopup(product)}
                   className="info-button"
                 >
                   <BadgeInfo />
@@ -157,10 +175,8 @@ const Product = () => {
         )}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="pagination">
-          {/* Tombol "<" untuk halaman sebelumnya */}
           <button
             className="page-button prev-button"
             onClick={() => handlePageChange(currentPage - 1)}
@@ -169,7 +185,6 @@ const Product = () => {
             &lt;
           </button>
 
-          {/* Tombol untuk setiap halaman */}
           {Array.from({ length: totalPages }, (_, idx) => (
             <button
               key={idx}
@@ -182,7 +197,6 @@ const Product = () => {
             </button>
           ))}
 
-          {/* Tombol ">" untuk halaman berikutnya */}
           <button
             className="page-button next-button"
             onClick={() => handlePageChange(currentPage + 1)}
@@ -193,7 +207,6 @@ const Product = () => {
         </div>
       )}
 
-      {/* Popup Info */}
       {showPopup && popupData && (
         <div className="popup-overlay show" onClick={handleClosePopup}>
           <div className="popup-content" onClick={(e) => e.stopPropagation()}>

@@ -4,35 +4,32 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUsers] = useState([]); // Menyimpan daftar pengguna yang sudah terdaftar
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Ambil data pengguna dari localStorage saat komponen dimuat
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const storedUsers = JSON.parse(localStorage.getItem("userLogin")) || [];
     setUsers(storedUsers);
   }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Periksa jika login sebagai admin
     if (username === "zamora" && password === "zamora1744") {
       localStorage.setItem("role", "admin");
       navigate("/admin");
     } else {
-      // Periksa pengguna terdaftar di localStorage
       const user = users.find(
         (user) => user.username === username && user.password === password
       );
-      console.log(user);
+
       if (!user) {
-        alert("Ini gamasuk anj");
+        alert("Incorrect username or password.");
       } else {
-        alert("ini masuk");
+        alert("Login successful.");
         localStorage.setItem("role", "user");
         navigate("/home");
-      }    
+      }
     }
   };
 
@@ -41,15 +38,16 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+    <div className="auth-container">
+      <h1 className="auth-title">Login</h1>
+      <form onSubmit={handleLogin} className="auth-form">
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          className="auth-input"
         />
         <input
           type="password"
@@ -57,13 +55,15 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="auth-input"
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="auth-button">Login</button>
       </form>
-      
-      <div>
+      <div className="auth-footer">
         <p>Don't have an account?</p>
-        <button onClick={navigateToRegister}>Register here</button>
+        <button onClick={navigateToRegister} className="auth-link">
+          Register here
+        </button>
       </div>
     </div>
   );

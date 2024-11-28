@@ -13,7 +13,7 @@ const About = () => {
 
       <h2 className="about-subtitle">How It Works</h2>
       <p className="about-text">
-        Getting started is easy! Sign up or log in, complete a brief consultation, and receive customized beauty and skincare product recommendations. You can also explore product reviews and make purchases directly through our platform.
+        Getting started is easy! Sign up or log in, complete a brief consultation, and receive customized beauty and skincare product recommendations.
       </p>
 
       <h2 className="about-subtitle">Our Team</h2>
@@ -23,7 +23,7 @@ const About = () => {
 
       <h2 className="about-subtitle">Contact Us</h2>
       <p className="about-text">
-        Got questions or need assistance? Reach out to us through our contact page or email us directly at <a href="mailto:morafidela1@gmail.com">morafidela1@gmail.com</a>. We're here to help!
+        Got questions or need assistance? Reach out to email us directly at <a href="mailto:morafidela1@gmail.com">morafidela1@gmail.com</a>. We're here to help!
       </p>
     </div>
   );

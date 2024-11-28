@@ -11,7 +11,7 @@ function UserFooter() {
           <ul>
             <li><a href="/about">About Us</a></li>
             <li><a href="/consultation">Consultation</a></li>
-            <li><a href="/products">Products</a></li>
+            <li><a href="/product">Product</a></li>
           </ul>
         </div>
         <div className="footer-right">
