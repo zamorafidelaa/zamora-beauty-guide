@@ -72,8 +72,8 @@ nav ul li:last-child {
 /* Link */
 nav ul li a {
   text-decoration: none; /* Hilangkan garis bawah */
-  font-size: 16px;
-  color: #ffffff; /* Warna teks putih */
+  font-size: 18px;
+  color: #ffffff; 
   font-family: "Arial", sans-serif;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.2s ease; /* Animasi */
@@ -87,12 +87,13 @@ nav ul li a:hover {
 }
 
 /* Home Container */
+/* Kontainer Utama */
 .home-container {
   display: flex;
   flex-direction: column; /* Konten ditumpuk secara vertikal */
-  justify-content: center;
+  justify-content: flex-start; /* Pesan di atas, produk di bawah */
   align-items: center;
-  height: 100vh;
+  height: auto; /* Tinggi menyesuaikan konten */
   width: 100%;
   position: relative;
   background-color: #ffe4e6; /* Latar belakang soft pink */
@@ -100,13 +101,14 @@ nav ul li a:hover {
 }
 
 /* Video Player */
+/* Video Player */
 .video-player {
-  position: absolute;
+  position: absolute; /* Tetap di latar belakang meskipun di-scroll */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Video menyesuaikan ukuran layar */
+  width: 100vw; /* Lebar penuh sesuai viewport */
+  height: 100vh; /* Tinggi penuh sesuai viewport */
+  object-fit: cover; /* Video menyesuaikan ukuran layar tanpa terdistorsi */
   z-index: 1; /* Pastikan video di latar belakang */
   opacity: 0.9; /* Kurangi transparansi agar video tetap terlihat */
   filter: brightness(0.9); /* Sedikit mengurangi kecerahan video agar teks lebih terbaca */
@@ -115,11 +117,11 @@ nav ul li a:hover {
 /* Lapisan Overlay untuk Kontras */
 .home-container::before {
   content: "";
-  position: absolute;
+  position: fixed; /* Tetap di atas video */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw; /* Lebar penuh sesuai viewport */
+  height: 100vh; /* Tinggi penuh sesuai viewport */
   background: rgba(255, 182, 193, 0.3); /* Lapisan pink transparan lebih ringan */
   z-index: 2; /* Di atas video */
 }
@@ -128,12 +130,12 @@ nav ul li a:hover {
 .home-container h1 {
   position: relative; /* Tetap di atas overlay */
   z-index: 3; /* Di atas semua elemen latar */
-  font-size: 5rem; /* Ukuran judul lebih besar */
+  font-size: 4rem; /* Ukuran judul lebih besar */
   font-weight: bold;
   color: #3d0d14; /* Warna merah lebih gelap */
   text-shadow: 2px 2px rgba(255, 255, 255, 0.8); /* Bayangan putih untuk kontras */
   margin-bottom: 30px;
-  margin-top: -50px; /* Dinaikkan sedikit */
+  margin-top: 270px; /* Dinaikkan sedikit */
   text-align: center;
 }
 
@@ -153,35 +155,100 @@ nav ul li a:hover {
 
 /* Pembungkus pesan selamat datang */
 .welcome-message {
-  display: flex; /* Gunakan Flexbox untuk tata letak */
-  flex-direction: column; /* Tata letak konten secara vertikal */
-  justify-content: center; /* Memusatkan konten secara vertikal */
-  align-items: center; /* Memusatkan konten secara horizontal */
-  text-align: center; /* Menyelaraskan teks secara horizontal */
-  z-index: 3; /* Pastikan pesan berada di atas video */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 3; /* Di atas video dan overlay */
   position: relative;
   padding: 20px;
 }
 
-/* Judul Pesan Sambutan */
-.welcome-message h1 {
-  font-size: 4rem; /* Ukuran judul lebih besar */
-  font-weight: bold;
-  color: #3d0d14; /* Warna merah lebih gelap */
-  text-shadow: 2px 2px rgba(255, 255, 255, 0.8); /* Bayangan putih untuk kontras */
-  margin-bottom: 30px;
+.content {
+  position: relative;
+  z-index: 3; /* Tetap di atas video */
+  background-color: #f2a7b5;
+  padding: 10px 20px 0 20px;
+  text-align: center;
+  margin-top: 370px;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 
-/* Paragraf Pesan Sambutan */
-.welcome-message p {
-  font-size: 1.6rem; /* Ukuran paragraf lebih besar */
-  color: #7a1a37; /* Warna merah lembut */
-  text-shadow: 1px 1px rgba(255, 255, 255, 0.6); /* Bayangan putih ringan */
-  max-width: 700px; /* Batas lebar agar teks tetap rapi */
-  line-height: 1.8;
-  margin: 0; /* Menghapus margin default */
-  padding: 0; /* Menghapus padding default */
+.content h2 {
+  font-size: 2rem;
+  color: #3d0d14;
+  margin-bottom: 35px;
 }
+
+.products-container-two {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-item-two {
+  background: linear-gradient(to bottom, #f8d2e3, #ffffff); /* Softer pink to white gradient */
+  border: 1px solid #f8a0d3; /* Lighter pink border */  
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-item-two:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-item-two img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-item-two h4 {
+  font-size: 1.4rem;
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+.product-item-two p {
+  font-size: 1rem;
+  color: #7a1a37;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menjadikan elemen anak di tengah secara horizontal */
+  justify-content: center; /* Menjadikan elemen anak di tengah secara vertikal */
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #ffe4e6; /* Latar belakang lembut */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category h3 {
+  font-size: 2rem;
+  color: #3d0d14;
+  margin-bottom: 10px;
+}
+
+.category p {
+  font-size: 1.2rem;
+  color: #7a1a37;
+  margin-bottom: 20px;
+  text-align: center; /* Menjadikan teks di tengah secara horizontal */
+}
+
+
 
 /* Responsif */
 @media (max-width: 768px) {
@@ -195,7 +262,19 @@ nav ul li a:hover {
     margin-top: 20px; /* Menambah jarak atas pada perangkat kecil */
     padding: 0 20px; /* Menambah jarak kiri-kanan pada perangkat kecil */
   }
+
+  .products-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-item {
+    width: 90%;
+  }
 }
+
+
+
 
 
 /* Responsif untuk perangkat kecil */
@@ -713,12 +792,16 @@ nav ul li a:hover {
 }
 
 
-/* Footer styles */
+/* Footer User styles */
 .user-footer {
   background-color: #f2a7b5;
   color: #f9f9f9;
   padding: 20px 0;
   font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 10;
+  width: 100%; /* Ensure the footer takes the full width */
+  font-size: 1.1rem;
 }
 
 .footer-container {
@@ -751,8 +834,8 @@ nav ul li a:hover {
 .footer-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: center; /* Align items to the left */
+  text-align: center; /* Change text alignment to left */
 }
 
 .footer-links h4 {
@@ -764,6 +847,7 @@ nav ul li a:hover {
 .footer-links ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-links ul li {
@@ -791,17 +875,25 @@ nav ul li a:hover {
 .social-icons {
   display: flex;
   justify-content: center;
+  gap: 15px; /* Jarak antara setiap ikon sosial media */
+  margin-top: 30px; /* Tambahkan jarak dari elemen sebelumnya */
 }
 
 .social-icons a {
-  display: inline-block;
-  margin-right: 15px;
-  color: #f9f9f9;
-  text-decoration: none;
+  display: flex; /* Mengatur elemen menjadi fleksibel */
+  align-items: center; /* Menyelaraskan teks dan ikon secara vertikal */
+  color: #f9f9f9; /* Warna teks default */
+  text-decoration: none; /* Hilangkan garis bawah */
+  transition: color 0.3s ease, transform 0.3s ease; /* Efek hover */
 }
 
 .social-icons a:hover {
-  color: #ee62ad;
+  color: #ee62ad; /* Warna saat di-hover */
+  transform: translateY(-3px); /* Sedikit animasi naik saat di-hover */
+}
+
+.social-icons svg {
+  font-size: 1.5rem; /* Ukuran ikon */
 }
 
 /* Footer Bottom */
@@ -831,6 +923,7 @@ nav ul li a:hover {
     margin-right: 10px;
   }
 }
+
 
 /* Admin */
 .admin-container{
@@ -1105,27 +1198,10 @@ nav ul li a:hover {
 
 
 
-
+/* Favorites */
 .icon-heart {
   font-size: 24px; /* Ukuran ikon sesuai preferensi */
   color: red; /* Warna ikon jika perlu */
-}
-
-.favorites-count {
-  position: absolute;
-  bottom: -5px; 
-  right: -15px; /* Position the count slightly to the right of the icon */
-  color: white; /* White text color */
-  border-radius: 50%; /* Circular shape */
-  padding: 3px 7px; /* Padding around the number */
-  font-size: 12px; /* Font size for the count */
-  font-weight: bold; /* Bold text for better readability */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 20px; /* Ensures a minimum width for the badge */
-  height: 20px; /* Ensures a consistent height for the badge */
-  line-height: 1; /* Centers the text vertically */
 }
 
 .favorites-button {
@@ -1134,7 +1210,6 @@ nav ul li a:hover {
   border: none; /* Remove any default border */
   cursor: pointer; /* Cursor should indicate a clickable element */
 }
-
 
 /* Overlay to darken background when popup is shown */
 .favorites-popup-overlay {
@@ -1153,7 +1228,7 @@ nav ul li a:hover {
 
 /* Popup content styling */
 .favorites-popup-content {
-  background-color: #ffe4e6; /* Soft pink background */
+  background-color: #f5e5e6; /* Soft pink background */
   padding: 20px;
   border-radius: 15px;
   width: 80%; /* Adjust the width of the popup */
@@ -1240,5 +1315,107 @@ nav ul li a:hover {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Profile */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  height: 100vh;
+  background: linear-gradient(to bottom, #ffe4f0, #f8a6b2, #ffd9e8); /* Bright pink gradient */
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Allow for decorative elements */
+}
+
+.profile-logo {
+  width: 150px; /* Adjust logo size */
+  height: auto;
+  margin-top: 30px; /* Adjust space to move the logo closer to the top */
+  margin-bottom: 20px; /* Space between logo and heading */
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for the logo */
+  border: 4px solid #ffadc6; /* Pink border around the logo */
+}
+
+.profile-page h2 {
+  font-size: 2.5rem;
+  color: #d36b88;
+  margin-top: 10px; /* Adjusted space to move the heading up */
+  text-shadow: 1px 1px 2px #ffc0cb; /* Subtle shadow for text */
+}
+
+.profile-page p {
+  font-size: 1.2rem;
+  margin-top: 10px; /* Adjusted space to move the paragraph up */
+  color: #5c3f57;
+  max-width: 1000px;
+  line-height: 1.9;
+}
+
+.welcome-text {
+  color: #ce498c; /* Bright pink for welcome text */
+  font-weight: bold;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.profile-button {
+  background: linear-gradient(45deg, #ff92b0, #d36b88); /* Gradient button background */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for buttons */
+}
+
+.profile-button:hover {
+  background: linear-gradient(45deg, #d36b88, #b44a6d); /* Darker gradient on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.profile-page a {
+  color: #d36b88;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-page a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .profile-page {
+    padding: 15px;
+  }
+
+  .profile-page h2 {
+    font-size: 2rem;
+  }
+
+  .profile-page p {
+    font-size: 1rem;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-button {
+    padding: 12px 25px;
   }
 }

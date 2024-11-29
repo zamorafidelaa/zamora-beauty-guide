@@ -12,6 +12,7 @@ import Product from "./pages/user/Product";
 import AdminRoutes from "./routes/AdminRoutes";
 import UserRoutes from "./routes/UserRoutes";
 import "./index.css";
+import Profile from "./pages/user/Profile";
 
 const router = createBrowserRouter([
   { 
@@ -42,6 +43,9 @@ const router = createBrowserRouter([
       },
       { path: "product", 
         element: <Product /> 
+      },
+      { path: "profile", 
+        element: <Profile /> 
       },
     ],
   },

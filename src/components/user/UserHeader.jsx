@@ -60,12 +60,14 @@ const UserHeader = () => {
               Product
             </Link>
           </li>
+          <li>
+            <Link to="/profile" className="nav-link">
+              Profile
+            </Link>
+          </li>
           <li className="favorites">
             <button onClick={toggleFavoritesPopup} className="favorites-button">
               <Heart className="icon-heart" />
-              {favorites.length > 0 && (
-                <span className="favorites-count">{favorites.length}</span>
-              )}
             </button>
           </li>
         </ul>
