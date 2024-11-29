@@ -875,7 +875,7 @@ nav ul li a:hover {
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 15px; /* Jarak antara setiap ikon sosial media */
+  gap: 30px; /* Jarak antara setiap ikon sosial media */
   margin-top: 30px; /* Tambahkan jarak dari elemen sebelumnya */
 }
 
