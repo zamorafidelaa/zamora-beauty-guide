@@ -4,7 +4,7 @@ const Consultation = () => {
   const [concerns, setConcerns] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [selectedConcern, setSelectedConcern] = useState("");
-  const [concernDescription, setConcernDescription] = useState(""); // State to store the description
+  const [concernDescription, setConcernDescription] = useState(""); 
 
   useEffect(() => {
     fetch("/skincare.json")
@@ -21,7 +21,7 @@ const Consultation = () => {
     );
     if (concernData) {
       setRecommendations(concernData.recommendations);
-      setConcernDescription(concernData.description); // Set the description
+      setConcernDescription(concernData.description); 
     }
   };
 
@@ -59,7 +59,6 @@ const Consultation = () => {
         </button>
       </form>
 
-      {/* Display the description of the selected concern */}
       {selectedConcern && concernDescription && (
         <div className="concern-description">
           <p>{concernDescription}</p>

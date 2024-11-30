@@ -11,14 +11,13 @@ const Admin = () => {
   });
   const [isEditing, setIsEditing] = useState(false);
 
-  // Load data dari localStorage atau file skincare.json
   useEffect(() => {
     const storedProducts = localStorage.getItem("products");
 
     if (storedProducts) {
       try {
         const parsedProducts = JSON.parse(storedProducts);
-        console.log("Produk yang diambil dari localStorage:", parsedProducts); // Debugging log
+        console.log("Produk yang diambil dari localStorage:", parsedProducts); 
         setProducts(parsedProducts);
       } catch (error) {
         console.error("Error parsing products from localStorage:", error);
@@ -33,7 +32,7 @@ const Admin = () => {
           const recommendations = data.flatMap((item) => item.recommendations);
           setProducts(recommendations);
           localStorage.setItem("products", JSON.stringify(recommendations));
-          console.log("Produk yang disimpan ke localStorage:", recommendations); // Debugging log
+          console.log("Produk yang disimpan ke localStorage:", recommendations); 
         })
         .catch((error) =>
           console.error("Error fetching skincare data:", error)
@@ -41,15 +40,13 @@ const Admin = () => {
     }
   }, []);
 
-  // Simpan ke localStorage setiap kali data produk berubah
   useEffect(() => {
     if (products.length > 0) {
-      console.log("Menyimpan produk ke localStorage:", products); // Debugging log
+      console.log("Menyimpan produk ke localStorage:", products); 
       localStorage.setItem("products", JSON.stringify(products));
     }
   }, [products]);
 
-  // Hapus produk
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       setProducts((prevProducts) =>
@@ -57,7 +54,7 @@ const Admin = () => {
       );
     }
   };
-  // Tambah produk
+
   const handleAdd = () => {
     const newProduct = {
       ...formState,
@@ -67,7 +64,6 @@ const Admin = () => {
     resetForm();
   };
 
-  // Edit produk
   const handleEdit = (product) => {
     setFormState(product);
     setIsEditing(true);
@@ -81,13 +77,11 @@ const Admin = () => {
     setIsEditing(false);
   };
 
-  // Reset form
   const resetForm = () => {
     setFormState({ id: null, name: "", type: "", description: "", image: "" });
     setIsEditing(false);
   };
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevState) => ({ ...prevState, [name]: value }));
@@ -97,7 +91,6 @@ const Admin = () => {
     <div className="admin-container">
       <h1 className="admin-title">Add Product - Zamora Beauty Guide</h1>
 
-      {/* Form for adding/editing products */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -152,7 +145,6 @@ const Admin = () => {
         </div>
       </form>
 
-      {/* Product list */}
       <div className="admin-product-list">
         {products.length > 0 ? (
           products.map((product) => (

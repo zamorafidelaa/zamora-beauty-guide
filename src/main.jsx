@@ -11,8 +11,9 @@ import Register from "./pages/auth/Register";
 import Product from "./pages/user/Product";
 import AdminRoutes from "./routes/AdminRoutes";
 import UserRoutes from "./routes/UserRoutes";
-import "./index.css";
 import Profile from "./pages/user/Profile";
+import Complaints from "./pages/admin/Complaints";
+import "./index.css";
 
 const router = createBrowserRouter([
   { 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <UserRoutes role="user" element={<Home />} />,
+      },
+      {
+        path: "complaints",
+        element: <Complaints/>
       },
       { path: "about", 
         element: <About /> 

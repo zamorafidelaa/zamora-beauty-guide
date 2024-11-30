@@ -1,8 +1,10 @@
-# React + Vite
+# Zamora Beauty Guide
+"Zamora Beauty Guide" adalah website lengkap yang dirancang untuk mempermudah rutinitas perawatan kulit dan memberikan solusi yang tepat. Pengguna dapat berkonsultasi mengenai kondisi kulit mereka, menjelajahi koleksi produk skincare yang telah dikurasi sesuai kebutuhan, serta menyampaikan keluhan kulit untuk mendapatkan panduan ahli. Pendekatan yang berfokus pada pengguna ini memastikan kemudahan dalam memilih dan menggunakan produk skincare yang tepat. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Fitur
+- Registrasi dan Login
+- Konsultasi
+- List Produk
+- Profile User
+- Daftar Produk Favorit
+- Dashbord Admin

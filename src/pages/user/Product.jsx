@@ -4,7 +4,7 @@ import { Heart } from "lucide-react";
 import { Search } from "lucide-react";
 
 const Product = () => {
-  const [favorites, setFavorites] = useState([]); // Favorit lokal (array of objects)
+  const [favorites, setFavorites] = useState([]); 
   const [skincareData, setSkincareData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [popupData, setPopupData] = useState(null);
@@ -15,7 +15,6 @@ const Product = () => {
   const itemsPerPage = 10;
 
   useEffect(() => {
-    // Load skincare data from localStorage
     const storedData = localStorage.getItem("products");
     if (storedData) {
       try {
@@ -27,7 +26,6 @@ const Product = () => {
       }
     }
 
-    // Load favorites from localStorage
     const storedFavorites = localStorage.getItem("favorites");
     if (storedFavorites) {
       try {
@@ -42,12 +40,11 @@ const Product = () => {
     const isFavorite = favorites.some((fav) => fav.name === product.name);
 
     const updatedFavorites = isFavorite
-      ? favorites.filter((fav) => fav.name !== product.name) // Remove if already in favorites
-      : [...favorites, { name: product.name, image: product.image }]; // Add if not in favorites
+      ? favorites.filter((fav) => fav.name !== product.name) 
+      : [...favorites, { name: product.name, image: product.image }]; 
 
     setFavorites(updatedFavorites);
 
-    // Save updated favorites to localStorage
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 

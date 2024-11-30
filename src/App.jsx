@@ -5,31 +5,28 @@ import UserFooter from "./components/user/UserFooter";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [role, setRole] = useState(""); // Peran pengguna (admin atau user)
-  const [favorites, setFavorites] = useState([]); // State untuk produk favorit
+  const [role, setRole] = useState(""); 
+  const [favorites, setFavorites] = useState([]); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Cek apakah ada status login yang disimpan di localStorage
     const storedRole = localStorage.getItem("role");
-    const currentPath = window.location.pathname; // Ambil path saat ini
+    const currentPath = window.location.pathname; 
 
     if (storedRole) {
       setRole(storedRole);
       setIsLoggedIn(true);
 
-      // Pastikan pengguna tetap berada di halaman yang sesuai dengan role
       if (storedRole === "admin" && !currentPath.startsWith("/admin")) {
         navigate("/admin");
       } else if (storedRole === "user" && (currentPath === "/" || currentPath.startsWith("/admin"))) {
         navigate("/home");
       }
     } else {
-      navigate("/login"); // Jika tidak ada role, arahkan ke halaman login
+      navigate("/login"); 
     }
   }, [navigate]);
 
-  // Fungsi untuk menambah atau menghapus produk dari favorit
   const toggleFavorite = (productName) => {
     setFavorites((prevFavorites) =>
       prevFavorites.includes(productName)
@@ -42,7 +39,7 @@ const App = () => {
     <div>
       {isLoggedIn && role === "user" && (
         <>
-          <UserHeader favorites={favorites} /> {/* Pass favorites ke UserHeader */}
+          <UserHeader favorites={favorites} /> 
           <Outlet
             context={{
               favorites,

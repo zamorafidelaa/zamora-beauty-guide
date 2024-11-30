@@ -4,7 +4,6 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch data from skincare.json
   useEffect(() => {
     fetch("/skincare.json")
       .then((response) => {
@@ -29,13 +28,11 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Video Background */}
       <video className="video-player" autoPlay loop muted playsInline>
         <source src="/video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Welcome Message */}
       <div className="welcome-message">
         <h1>Welcome to Zamora Beauty Guide</h1>
         <p>
@@ -45,11 +42,9 @@ const Home = () => {
         </p>
       </div>
 
-      {/* Product Categories */}
       <div className="content">
         <h2>Our Favorite Products by Skin Type</h2>
 
-        {/* Kulit Berjerawat */}
         {products[0]?.recommendations ? (
           <div className="category">
             <h3>Kulit Berjerawat</h3>
@@ -71,7 +66,6 @@ const Home = () => {
           <p>No products available for "Kulit Berjerawat".</p>
         )}
 
-        {/* Kulit Belang */}
         {products[1]?.recommendations ? (
           <div className="category">
             <h3>Kulit Belang</h3>

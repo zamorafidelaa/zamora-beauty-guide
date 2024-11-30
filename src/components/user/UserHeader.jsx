@@ -1,35 +1,37 @@
 import { Heart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, Menu } from "lucide-react"; 
 
 const UserHeader = () => {
   const navigate = useNavigate();
   const [showFavoritesPopup, setShowFavoritesPopup] = useState(false);
-  const [favorites, setFavorites] = useState([]); // Menyimpan data favorites
+  const [favorites, setFavorites] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false); 
 
-  // Fungsi logout
   function handleLogout() {
-    localStorage.removeItem("role"); // Menghapus role dari localStorage
-    navigate("/login"); // Redirect ke login page
+    localStorage.removeItem("role");
+    navigate("/login");
   }
 
-  // Load data favorites dari localStorage
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites");
     if (storedFavorites) {
       try {
-        const parsedFavorites = JSON.parse(storedFavorites); // Parse data dari localStorage
-        setFavorites(parsedFavorites); // Update state dengan data favorites
+        const parsedFavorites = JSON.parse(storedFavorites);
+        setFavorites(parsedFavorites);
       } catch (error) {
         console.error("Error parsing favorites data:", error);
       }
     }
-  }, [showFavoritesPopup]); // Refresh data ketika popup di-toggle
+  }, [showFavoritesPopup]);
 
-  // Toggle visibility untuk popup
   const toggleFavoritesPopup = () => {
     setShowFavoritesPopup((prev) => !prev);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
   };
 
   return (
@@ -38,30 +40,38 @@ const UserHeader = () => {
         <img src="image.png" alt="Logo" className="logo-image" />
         <h1 className="site-title">Zamora Beauty Guide</h1>
       </div>
-      <nav className="main-nav">
+
+      <button className="hamburger-button" onClick={toggleMenu}>
+        {menuOpen ? <X/> : <Menu/>}
+      </button>
+
+      <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
+        <button className="close-button" onClick={toggleMenu}>
+          <X />
+        </button>
         <ul className="nav-links">
           <li>
-            <Link to="/" className="nav-link">
+            <Link to="/" className="nav-link" onClick={toggleMenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className="nav-link">
+            <Link to="/about" className="nav-link" onClick={toggleMenu}>
               About
             </Link>
           </li>
           <li>
-            <Link to="/consultation" className="nav-link">
+            <Link to="/consultation" className="nav-link" onClick={toggleMenu}>
               Consultation
             </Link>
           </li>
           <li>
-            <Link to="/product" className="nav-link">
+            <Link to="/product" className="nav-link" onClick={toggleMenu}>
               Product
             </Link>
           </li>
           <li>
-            <Link to="/profile" className="nav-link">
+            <Link to="/profile" className="nav-link" onClick={toggleMenu}>
               Profile
             </Link>
           </li>
@@ -76,12 +86,12 @@ const UserHeader = () => {
         </button>
       </nav>
 
-      {/* Popup untuk menampilkan produk favorit */}
+      {/* Popup Favorit */}
       {showFavoritesPopup && (
         <div className="favorites-popup-overlay" onClick={toggleFavoritesPopup}>
           <div
             className="favorites-popup-content"
-            onClick={(e) => e.stopPropagation()} // Agar klik di dalam popup tidak menutup
+            onClick={(e) => e.stopPropagation()}
           >
             <h2>Favorited Products</h2>
             {favorites.length > 0 ? (
@@ -89,7 +99,7 @@ const UserHeader = () => {
                 {favorites.map((favorite, idx) => (
                   <li key={idx} className="favorite-item">
                     <img
-                      src={`/${favorite.image}`} // Menampilkan gambar dari localStorage
+                      src={`/${favorite.image}`}
                       alt={favorite.name}
                       className="favorite-image"
                     />

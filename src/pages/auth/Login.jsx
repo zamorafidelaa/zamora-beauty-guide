@@ -16,13 +16,11 @@ const Login = () => {
     e.preventDefault();
 
     if (username === "zamora" && password === "zamora1744") {
-      // Admin login
       localStorage.setItem("role", "admin");
       localStorage.setItem("currentUser", JSON.stringify({ username: "zamora", role: "admin" }));
       alert("Admin login successful");
       navigate("/admin");
     } else {
-      // User login
       const user = users.find(
         (user) => user.username === username && user.password === password
       );
@@ -32,7 +30,7 @@ const Login = () => {
       } else {
         alert("Login successful.");
         localStorage.setItem("role", "user");
-        localStorage.setItem("currentUser", JSON.stringify(user)); // Store logged-in user info
+        localStorage.setItem("currentUser", JSON.stringify(user)); 
         navigate("/home");
       }
     }
