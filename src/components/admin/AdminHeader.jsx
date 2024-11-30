@@ -19,7 +19,7 @@ export default function AdminHeader() {
     <header className="admin-header">
       <h1 className="header-admin">Admin Panel - Zamora Beauty Guide</h1>
 
-      <button className="hamburger-button" onClick={toggleMenu}>
+      <button className="humburger-button" onClick={toggleMenu}>
         {menuOpen ? <X /> : <Menu />}
       </button>
 
