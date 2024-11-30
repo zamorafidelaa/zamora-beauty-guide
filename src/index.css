@@ -1579,15 +1579,16 @@ div .home-container p {
 
 
 /* ADMIN */
-.admin-container{
+.admin-container {
   background-color: #ffe6f2a0;
 }
-.admin-header{
+
+.admin-header {
   background-color: #ffe6f2;
 }
 
-.header-admin{
-  color: #ff66b2; 
+.header-admin {
+  color: #ff66b2;
 }
 
 nav ul {
@@ -1602,25 +1603,90 @@ nav ul {
 }
 
 .header-link a {
-  color: #ff69b4; 
+  color: #ff69b4;
   font-size: 1.1rem;
-  text-decoration: none; 
-  transition: color 0.3s ease, transform 0.3s ease; 
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .header-link a:hover {
-  color: #ad1767; 
-  transform: translateY(-2px); 
+  color: #ad1767;
+  transform: translateY(-2px);
 }
 
 .header-link a:focus {
-  outline: none; 
+  outline: none;
 }
 
-.admin-title{
+.admin-title {
   margin: 0;
-  color: #ff66b2; 
+  color: #ff66b2;
   text-align: center;
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #ffe6f2;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-menu.visible {
+  display: flex;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu ul li {
+  margin: 10px 0;
+}
+
+.nav-menu ul li a {
+  color: #ff69b4;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color: #ad1767;
+}
+
+.hamburger-button {
+  border-radius: 5px;
+  display: block;
+  background-color: #e3518b;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  z-index: 1001;
+}
+
+@media (min-width: 769px) {
+  .popup-menu {
+    display: block;
+  }
+
+  .popup-overlay-two {
+    display: block;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -1628,12 +1694,14 @@ nav ul {
     padding: 20px 40px;
   }
 
-  .header-admin{
+  .header-admin {
     font-size: 25px;
   }
-  .admin-title{
+
+  .admin-title {
     font-size: 20px;
   }
+
   nav ul {
     display: flex;
     justify-content: center;
@@ -1653,11 +1721,11 @@ nav ul {
     padding: 15px 30px;
   }
 
-  .header-admin{
+  .header-admin {
     font-size: 20px;
   }
 
-  .admin-title{
+  .admin-title {
     font-size: 15px;
   }
 
@@ -1666,7 +1734,200 @@ nav ul {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 425px) {
+  .popup-menu {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: #f9c5d3;
+    padding: 20px;
+    z-index: 1001;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .popup-overlay-two {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .popup-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header-link a {
+    display: block;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: #ff69b4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .header-link a:hover {
+    color: #ad1767;
+  }
+
+  .hamburger-button {
+    border-radius: 5px;
+  }
+
+  .logout-button {
+    margin-top: 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+}
+
+/* For very small mobile screens (375px and below) */
+@media (max-width: 375px) {
+  .popup-menu {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: #f9c5d3;
+    padding: 20px;
+    z-index: 1001;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .popup-overlay-two {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .popup-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header-link a {
+    display: block;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ff69b4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .header-link a:hover {
+    color: #ad1767;
+  }
+
+  .hamburger-button {
+    border-radius: 5px;
+  }
+
+  .logout-button {
+    margin-top: 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 320px) {
+  .popup-menu {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: #f9c5d3;
+    padding: 20px;
+    z-index: 1001;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 250px;
+  }
+
+  .popup-overlay-two {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .popup-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header-link a {
+    display: block;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #ff69b4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .header-link a:hover {
+    color: #ad1767;
+  }
+
+  .hamburger-button {
+    border-radius: 5px;
+  }
+
+  .logout-button {
+    margin-top: 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
   .popup-menu {
     display: block;
     position: fixed;
@@ -1685,12 +1946,13 @@ nav ul {
 
   .popup-overlay-two {
     position: fixed;
+    display: block;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 1000; 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
   }
 
   .popup-menu ul {
@@ -1715,7 +1977,7 @@ nav ul {
     color: #ad1767;
   }
 
-  .hamburger-button{
+  .hamburger-button {
     border-radius: 5px;
   }
 
@@ -1860,7 +2122,6 @@ nav ul {
   text-shadow: 1px 1px 2px #ffc0cb; 
 }
 
-/* Complaint item styling */
 .complaint-item {
   background: linear-gradient(to right, #ffe4e1, #ffadc6); 
   border: 1px solid #ff69b4;
