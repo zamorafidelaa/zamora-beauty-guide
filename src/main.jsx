@@ -16,46 +16,28 @@ import Complaints from "./pages/admin/Complaints";
 import "./index.css";
 
 const router = createBrowserRouter([
-  { 
-    path: "login", 
-    element: <Login /> 
-  }, 
-  { 
-    path: "register", 
-    element: <Register /> 
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
+  {
+    path: "/admin",
+    element: <AdminRoutes />, 
+    children: [
+      { index: true, element: <Admin /> },          
+      { path: "complaints", element: <Complaints /> }, 
+    ],
   },
   {
     path: "/",
-    element: <App />, 
+    element: <App />,
     children: [
-      {
-        path: "admin",
-        element: <AdminRoutes role="admin" element={<Admin />} />, 
-      },
-      {
-        path: "home",
-        element: <UserRoutes role="user" element={<Home />} />,
-      },
-      {
-        path: "complaints",
-        element: <Complaints/>
-      },
-      { path: "about", 
-        element: <About /> 
-      },
-      { path: "consultation", 
-        element: <Consultation /> 
-      },
-      { path: "product", 
-        element: <Product /> 
-      },
-      { path: "profile", 
-        element: <Profile /> 
-      },
+      { path: "home", element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "consultation", element: <Consultation /> },
+      { path: "product", element: <Product /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />

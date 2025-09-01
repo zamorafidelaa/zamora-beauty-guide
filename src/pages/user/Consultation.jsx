@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Consultation = () => {
   const [concerns, setConcerns] = useState([]);
@@ -22,6 +23,9 @@ const Consultation = () => {
     if (concernData) {
       setRecommendations(concernData.recommendations);
       setConcernDescription(concernData.description); 
+    } else {
+      setRecommendations([]);
+      setConcernDescription("");
     }
   };
 
@@ -32,21 +36,28 @@ const Consultation = () => {
     }
   };
 
-  return (
-    <div className="consultation-container">
-      <h1 className="consultation-title">Consultation</h1>
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
-      <form className="consultation-form" onSubmit={handleSubmit}>
-        <label htmlFor="concern" className="consultation-label">
-          Pilih Keluhan Kulit:
-        </label>
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-[calc(80px+4rem)]">
+      <h1 className="text-3xl sm:text-4xl font-bold text-pink-500 text-center mb-10">
+        Consultation
+      </h1>
+
+      {/* Form */}
+      <form
+        className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
+        onSubmit={handleSubmit}
+      >
         <select
-          id="concern"
-          className="consultation-select"
+          className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 shadow-sm transition text-sm"
           value={selectedConcern}
           onChange={(e) => setSelectedConcern(e.target.value)}
         >
-          <option value="">-- Pilih --</option>
+          <option value="">-- Pilih Keluhan Kulit --</option>
           {concerns.map((concern, index) => (
             <option key={index} value={concern.concern}>
               {concern.concern}
@@ -54,34 +65,58 @@ const Consultation = () => {
           ))}
         </select>
 
-        <button type="submit" className="consultation-button">
+        <button
+          type="submit"
+          className="w-full sm:w-auto px-5 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 shadow transition text-sm"
+        >
           Cari Rekomendasi
         </button>
       </form>
 
+      {/* Description */}
       {selectedConcern && concernDescription && (
-        <div className="concern-description">
-          <p>{concernDescription}</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-pink-50 p-4 rounded-lg mb-8 text-center shadow-sm"
+        >
+          <p className="text-gray-700 text-sm sm:text-base">{concernDescription}</p>
+        </motion.div>
       )}
 
-      <div className="recommendations-container">
-        {recommendations.length > 0 ? (
-          recommendations.map((recommendation, index) => (
-            <div key={index} className="recommendation-item">
-              <h3 className="recommendation-name">{recommendation.name}</h3>
-              <p className="recommendation-type">{recommendation.type}</p>
+      {/* Recommendations */}
+      {recommendations.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {recommendations.map((rec, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInUp}
+              className="relative group rounded-2xl overflow-hidden shadow-md cursor-pointer flex flex-col"
+            >
               <img
-                className="recommendation-image"
-                src={`/${recommendation.image}`}
-                alt={recommendation.name}
+                src={`/${rec.image}`}
+                alt={rec.name}
+                className="w-full h-56 sm:h-64 md:h-72 object-cover"
               />
-            </div>
-          ))
-        ) : (
-          <p className="no-recommendations">No recommendations available.</p>
-        )}
-      </div>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
+                <h3 className="text-white text-md font-semibold">{rec.name}</h3>
+                <p className="text-white text-xs sm:text-sm mt-1">{rec.type}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      ) : (
+        selectedConcern && (
+          <p className="text-center text-gray-500 text-sm sm:text-base">
+            No recommendations available.
+          </p>
+        )
+      )}
     </div>
   );
 };

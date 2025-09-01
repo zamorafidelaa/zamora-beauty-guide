@@ -1,17 +1,15 @@
-import { Route, Routes } from "react-router-dom";
-import AdminHeader from "../components/admin/AdminHeader";
-import Admin from "../pages/admin/Admin";
 import AdminFooter from "../components/admin/AdminFooter";
-import Complaints from "../pages/admin/Complaints";
+import DashboardLayout from "../components/admin/DashboardLayout";
+import { Outlet } from "react-router-dom";
 
 const AdminRoutes = () => {
   return (
     <div>
-      <AdminHeader />
-      <Routes>
-        <Route path="/" element={<Admin />} />
-        <Route path="/complaints" element={<Complaints />} />
-      </Routes>
+      <DashboardLayout>
+      <Outlet /> {/* Admin atau Complaints akan muncul di sini */}
+      <AdminFooter />
+    </DashboardLayout>
+      
       <AdminFooter />
     </div>
   );

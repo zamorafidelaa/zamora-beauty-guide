@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { BadgeInfo } from "lucide-react";
-import { Heart } from "lucide-react";
-import { Search } from "lucide-react";
+import { Heart, BadgeInfo, Search } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Product = () => {
-  const [favorites, setFavorites] = useState([]); 
+  const [favorites, setFavorites] = useState([]);
   const [skincareData, setSkincareData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [popupData, setPopupData] = useState(null);
@@ -12,46 +11,37 @@ const Product = () => {
   const [selectedType, setSelectedType] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
+
+  // User login simulasi
+  const currentUser = localStorage.getItem("currentUser") || "guest";
 
   useEffect(() => {
-    const storedData = localStorage.getItem("products");
-    if (storedData) {
-      try {
-        const parsedData = JSON.parse(storedData);
-        setSkincareData(parsedData);
-        setFilteredData(parsedData);
-      } catch (error) {
-        console.error("Error parsing products data from localStorage:", error);
-      }
-    }
+    const storedData = JSON.parse(localStorage.getItem("products")) || [];
+    setSkincareData(storedData);
+    setFilteredData(storedData);
 
-    const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
-      try {
-        setFavorites(JSON.parse(storedFavorites));
-      } catch (error) {
-        console.error("Error parsing favorites data from localStorage:", error);
-      }
-    }
-  }, []);
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || {};
+    setFavorites(storedFavorites[currentUser] || []);
+  }, [currentUser]);
 
   const toggleFavorite = (product) => {
-    const isFavorite = favorites.some((fav) => fav.name === product.name);
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || {};
+    const userFav = storedFavorites[currentUser] || [];
 
-    const updatedFavorites = isFavorite
-      ? favorites.filter((fav) => fav.name !== product.name) 
-      : [...favorites, { name: product.name, image: product.image }]; 
+    const isFav = userFav.some((f) => f.name === product.name);
+    const updatedFav = isFav
+      ? userFav.filter((f) => f.name !== product.name)
+      : [...userFav, { name: product.name, image: product.image }];
 
-    setFavorites(updatedFavorites);
-
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    storedFavorites[currentUser] = updatedFav;
+    localStorage.setItem("favorites", JSON.stringify(storedFavorites));
+    setFavorites(updatedFav);
   };
 
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
-
     const results = skincareData.filter(
       (item) =>
         item.name.toLowerCase().includes(value) ||
@@ -64,15 +54,8 @@ const Product = () => {
   const handleTypeChange = (e) => {
     const type = e.target.value.toLowerCase();
     setSelectedType(type);
-
-    if (type === "") {
-      setFilteredData(skincareData);
-    } else {
-      const results = skincareData.filter(
-        (product) => product.type.toLowerCase() === type
-      );
-      setFilteredData(results);
-    }
+    if (!type) setFilteredData(skincareData);
+    else setFilteredData(skincareData.filter((p) => p.type.toLowerCase() === type));
     setCurrentPage(1);
   };
 
@@ -80,145 +63,155 @@ const Product = () => {
     setPopupData(product);
     setShowPopup(true);
   };
-
   const handleClosePopup = () => {
     setShowPopup(false);
     setPopupData(null);
   };
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentData = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-
+  const indexOfLast = currentPage * itemsPerPage;
+  const indexOfFirst = indexOfLast - itemsPerPage;
+  const currentData = filteredData.slice(indexOfFirst, indexOfLast);
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
   return (
-    <div className="product-container">
-      <h1>All Skincare Products</h1>
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search skincare by concern or product name..."
-          value={searchTerm}
-          onChange={handleSearch}
-          className="search-input"
-        />
-        <Search className="search-icon" />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-[calc(80px+4rem)]">
+      <h1 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-8 text-center">
+        All Skincare Products
+      </h1>
+
+      {/* Search & Filter */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-8">
+        <div className="relative w-full sm:w-1/2">
+          <input
+            type="text"
+            placeholder="Search by product or concern..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-300"
+          />
+          <Search className="absolute right-3 top-2.5 w-5 h-5 text-gray-400" />
+        </div>
+
+        <select
+          value={selectedType}
+          onChange={handleTypeChange}
+          className="w-full sm:w-1/4 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-300"
+        >
+          <option value="">All Types</option>
+          <option value="cleanser">Cleanser</option>
+          <option value="moisturizer">Moisturizer</option>
+          <option value="serum">Serum</option>
+          <option value="sunscreen">Sunscreen</option>
+        </select>
       </div>
 
-      <select
-        onChange={handleTypeChange}
-        value={selectedType}
-        className="type-select"
-      >
-        <option value="">Select a type</option>
-        <option value="cleanser">Cleanser</option>
-        <option value="moisturizer">Moisturizer</option>
-        <option value="serum">Serum</option>
-        <option value="sunscreen">Sunscreen</option>
-      </select>
-
-      <div className="product-list">
+      {/* Products Grid */}
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {currentData.length > 0 ? (
           currentData.map((product, idx) => (
-            <div key={idx} className="product-item">
-              <h4>{product.name}</h4>
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.03 }}
+              className="relative bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer group"
+            >
               <img
                 src={`/${product.image}`}
                 alt={product.name}
-                className="product-image"
+                className="w-full h-64 object-cover"
               />
-              <div className="button-container">
-                <button
-                  onClick={() => toggleFavorite(product)}
-                  className="like-button"
-                >
-                  <Heart
-                    className={`heart-icon ${
-                      favorites.some((fav) => fav.name === product.name)
-                        ? "liked"
-                        : "unliked"
-                    }`}
-                    fill={
-                      favorites.some((fav) => fav.name === product.name)
-                        ? "red"
-                        : "none"
-                    }
-                    stroke={
-                      favorites.some((fav) => fav.name === product.name)
-                        ? "red"
-                        : "currentColor"
-                    }
-                  />
-                </button>
 
+              {/* Overlay muncul saat hover */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center p-4">
+                <h3 className="text-white font-semibold text-lg mb-2">{product.name}</h3>
+                <p className="text-white text-sm">{product.type}</p>
                 <button
                   onClick={() => handleShowPopup(product)}
-                  className="info-button"
+                  className="mt-3 px-3 py-1 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition"
                 >
-                  <BadgeInfo />
+                  Info
                 </button>
               </div>
-            </div>
+
+              {/* Heart tetap di pojok */}
+              <button
+                onClick={() => toggleFavorite(product)}
+                className="absolute top-2 right-2 z-10"
+              >
+                <Heart
+                  className={`w-6 h-6 transition-transform duration-200 ${
+                    favorites.some((f) => f.name === product.name)
+                      ? "text-red-500 scale-125"
+                      : "text-gray-400"
+                  }`}
+                />
+              </button>
+            </motion.div>
           ))
         ) : (
-          <p className="no-results">
-            No skincare products match your search or selected type.
+          <p className="text-center col-span-full text-gray-500">
+            No skincare products match your search or type.
           </p>
         )}
       </div>
 
+      {/* Pagination */}
       {totalPages > 1 && (
-        <div className="pagination">
+        <div className="flex justify-center mt-8 space-x-2">
           <button
-            className="page-button prev-button"
-            onClick={() => handlePageChange(currentPage - 1)}
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
             disabled={currentPage === 1}
+            className="px-3 py-1 border rounded-lg hover:bg-pink-100"
           >
             &lt;
           </button>
-
-          {Array.from({ length: totalPages }, (_, idx) => (
+          {Array.from({ length: totalPages }, (_, i) => (
             <button
-              key={idx}
-              className={`page-button ${
-                currentPage === idx + 1 ? "active" : ""
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-3 py-1 border rounded-lg hover:bg-pink-100 ${
+                currentPage === i + 1 ? "bg-pink-400 text-white" : ""
               }`}
-              onClick={() => handlePageChange(idx + 1)}
             >
-              {idx + 1}
+              {i + 1}
             </button>
           ))}
-
           <button
-            className="page-button next-button"
-            onClick={() => handlePageChange(currentPage + 1)}
+            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
             disabled={currentPage === totalPages}
+            className="px-3 py-1 border rounded-lg hover:bg-pink-100"
           >
             &gt;
           </button>
         </div>
       )}
 
+      {/* Popup */}
       {showPopup && popupData && (
-        <div className="popup-overlay show" onClick={handleClosePopup}>
-          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-            <h2>{popupData.name}</h2>
+        <div
+          className="fixed inset-0 bg-black/40 flex justify-center items-center z-50"
+          onClick={handleClosePopup}
+        >
+          <motion.div
+            className="bg-white rounded-2xl p-6 max-w-md w-full relative"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+          >
+            <h2 className="font-bold text-xl text-gray-800 mb-3">{popupData.name}</h2>
             <img
               src={`/${popupData.image}`}
               alt={popupData.name}
-              className="popup-image"
+              className="w-full h-64 object-cover rounded-lg mb-3"
             />
-            <h2>{popupData.type}</h2>
-            <p>{popupData.description}</p>
-            <button onClick={handleClosePopup} className="close-popup-button">
+            <h3 className="text-pink-400 font-semibold mb-2">{popupData.type}</h3>
+            <p className="text-gray-600 text-sm">{popupData.description}</p>
+            <button
+              onClick={handleClosePopup}
+              className="mt-4 px-4 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-500"
+            >
               Close
             </button>
-          </div>
+          </motion.div>
         </div>
       )}
     </div>
